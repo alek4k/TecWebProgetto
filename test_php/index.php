@@ -2,6 +2,7 @@
 
 require_once ('./Models/Database.php');
 require_once ('./Models/Admin.php');
+require_once('./Models/Template.php');
 
 echo "start ";
 
@@ -59,3 +60,21 @@ function createAdmin() {
     echo "end";
     return "";
 }
+
+
+
+$tp = new Template();
+
+$tp
+    ->assign('var1',1)
+    ->assign('var2',2)
+    ->assign('var3',3)
+    ->assign('var4',4);
+
+$yield = $tp->fetch('page.php');
+
+$tp
+    ->assign('title','My Awesome site!')
+    ->assign('yield', $yield );
+
+echo $tp->fetch('layout.php');
