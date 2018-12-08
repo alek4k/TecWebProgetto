@@ -1,62 +1,66 @@
-*{
-	margin: 0em;
-	padding: 0;
-}
-html,
-body {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 0.9em;
-  max-width: 1024px;
-  margin-top: 0.1em;
-  margin: auto;
-  background-color: white;
-  background-image: url('../images/wood.jpg');
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+* {
+    margin: 0;
+    padding: 0;
 }
 
- 
+html,
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    max-width: 1024px;
+    margin: auto;
+    background-color: white;
+    background-image: url('../images/wood.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
 #header1 {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  width: 100%;
-  max-width: 1024px;
-  background-color: #3c2109;
-  
-  /* background-image: url('../img/wood-pattern.jpg'); */
-  /* opacity: 1; */
-  /* background-position: center; */
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    max-width: 1024px;
+    background-color: #3c2109;
+
+    /* background-image: url('../img/wood-pattern.jpg'); */
+    /* opacity: 1; */
+    /* background-position: center; */
 }
 
 #header img {
-  width: 10em;
-  padding: 0em;
-  padding-left: 2em;
-   padding-left: 2em; 
-  float: left;
-  display: block;
-  position: relative;
+    width: 10em;
+    padding: 0;
+    float: left;
+    display: block;
+    position: relative;
 }
+
 .content {
-  display: block;
-  z-index: +1;
+    display: block;
+    z-index: +1;
 }
+
 .top-img {
-  margin: 0em;
-  background-repeat: no-repeat;
-  background-color: white;
-  background-position-x: center;
-  background-position-y: center;
-  position: relative;
-  bottom: 0em;
-  z-index: +1;
-  height: 40em;
-  width: 100%;
-  display: inline-block;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position-x: center;
+    background-position-y: center;
+    position: relative;
+    bottom: 0;
+    z-index: +1;
+    height: 40em;
+    width: 100%;
+    display: inline-block;
 }
+
 #home-top-img {
-	background-image: url(../images/rifugio.jpg);
+    background-image: url(../images/rifugio2.jpg);
+    background-color: #cccccc;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
