@@ -3,64 +3,67 @@
     padding: 0;
 }
 
-html,
-body {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 0.9em;
-    max-width: 1024px;
+.container {
+    display: block;
     margin: auto;
-    background-color: white;
-    background-image: url('../images/wood.jpg');
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-attachment: fixed;
-    background-size: 100% 100%;
+    width: 55%;
 }
 
-#header1 {
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    width: 100%;
-    max-width: 1024px;
-    background-color: #3c2109;
-
-    /* background-image: url('../img/wood-pattern.jpg'); */
-    /* opacity: 1; */
-    /* background-position: center; */
-}
-
-#header img {
-    width: 10em;
-    padding: 0;
-    float: left;
+.imgFull {
+    height: 100vh;
     display: block;
-    position: relative;
-}
-
-.content {
-    display: block;
-    z-index: +1;
-}
-
-.top-img {
-    margin: 0;
-    background-repeat: no-repeat;
-    background-color: white;
-    background-position-x: center;
-    background-position-y: center;
-    position: relative;
-    bottom: 0;
-    z-index: +1;
-    height: 40em;
-    width: 100%;
-    display: inline-block;
-}
-
-#home-top-img {
-    background-image: url(../images/rifugio2.jpg);
-    background-color: #cccccc;
-    background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    background-image: url('../images/rifugio2.jpg');
+}
+
+#topHeader {
+    height: 6em;
+    background-color: #0009;
+}
+
+#logo {
+    width: 9em;
+    margin-top: 1em;
+}
+
+
+
+/************ icone google *************/
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../images/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+    url(../images/iconfont/MaterialIcons-Regular.woff) format('woff'),
+    url(../images/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+    color: white;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
