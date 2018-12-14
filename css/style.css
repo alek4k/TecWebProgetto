@@ -25,10 +25,11 @@
 
 #header-main {
     padding: 0.5em 0;
-    display: flex;
-    display: -webkit-flex; /* supporto safari 6.1, chrome 21.0 */
-    display: -moz-flex; /* supporto firefox 18.0 */
-    display: -ms-flex; /* supporto ie 10.0 */
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
 #logo {
@@ -38,6 +39,7 @@
 #contact-header {
     margin: auto;
     margin-right: 0;
+    align-self: center;
 }
 
 .firstContactItem {
@@ -54,6 +56,18 @@
 }
 /************************************************/
 
+#navbar {
+    position: static;
+    width: 100%;
+}
+
+#navbar-content {
+    background-color: black;
+    height: 3em;
+}
+
+
+
 .left {
     float: left;
 }
@@ -67,7 +81,9 @@
     vertical-align: middle;
 }
 
-
+#test {
+    height: 900px;
+}
 
 /************ icone google *************/
 @font-face {
