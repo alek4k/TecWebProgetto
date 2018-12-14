@@ -18,6 +18,7 @@
     background-image: url('../images/rifugio2.jpg');
 }
 
+/**************** header bar logo/contatti *********/
 #topHeader {
     background-color: #0009;
 }
@@ -25,6 +26,9 @@
 #header-main {
     padding: 0.5em 0;
     display: flex;
+    display: -webkit-flex; /* supporto safari 6.1, chrome 21.0 */
+    display: -moz-flex; /* supporto firefox 18.0 */
+    display: -ms-flex; /* supporto ie 10.0 */
 }
 
 #logo {
@@ -33,7 +37,7 @@
 
 #contact-header {
     margin: auto;
-    width: 100%;
+    margin-right: 0;
 }
 
 .firstContactItem {
@@ -44,6 +48,12 @@
     color: white;
 }
 
+#contact-header .material-icons {
+    padding-right: 0.1em;
+
+}
+/************************************************/
+
 .left {
     float: left;
 }
@@ -52,15 +62,12 @@
     float: right;
 }
 
-#contact-header .material-icons {
-    padding-right: 0.1em;
-
-}
-
 .vertical-align-block {
     display: inline-block;
     vertical-align: middle;
 }
+
+
 
 /************ icone google *************/
 @font-face {
@@ -99,3 +106,5 @@
     /* Support for IE. */
     font-feature-settings: 'liga';
 }
+
+/****************************************/
