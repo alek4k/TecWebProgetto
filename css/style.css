@@ -19,16 +19,48 @@
 }
 
 #topHeader {
-    height: 6em;
     background-color: #0009;
 }
 
-#logo {
-    width: 9em;
-    margin-top: 1em;
+#header-main {
+    padding: 0.5em 0;
+    display: flex;
 }
 
+#logo {
+    height: 4.5em;
+}
 
+#contact-header {
+    margin: auto;
+    width: 100%;
+}
+
+.firstContactItem {
+    margin-right: 1.5em;
+}
+
+#contact-header p {
+    color: white;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+#contact-header .material-icons {
+    padding-right: 0.1em;
+
+}
+
+.vertical-align-block {
+    display: inline-block;
+    vertical-align: middle;
+}
 
 /************ icone google *************/
 @font-face {
