@@ -63,6 +63,7 @@ body {
 #navbar {
     position: static;
     width: 100%;
+    z-index: 10;
 }
 
 #navbar-content {
@@ -93,6 +94,7 @@ body {
 /* mouse over link */
 #menu li a:hover {
     color: #00cc00;
+    font-weight: bold;
 }
 
 /* selected link */
@@ -101,10 +103,20 @@ body {
 }
 
 .active a {
-    color: #00cc00!important;
+    cursor: default;
+    font-weight: bold;
+    text-decoration: underline #00cc00!important;
+}
+
+.active a:hover {
+    color: #000000!important;
 }
 
 /******************* generic *************************/
+
+.text-center {
+    text-align: center;
+}
 
 .left {
     float: left;
@@ -119,8 +131,25 @@ body {
     vertical-align: middle;
 }
 
-#test {
+/******************* home *************************/
+
+#title-home {
+    position: absolute;
+    top: 50%;
+    width: inherit;
+    color: #ffffff;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.94);
+    font-size: 3em;
+    border: 0.01em solid #ffffff;
+    background-color: #000000b3;
+}
+
+#apertura {
     height: 900px;
+}
+
+#metri {
+    color: #00cc00;
 }
 
 /************ icone google *************/
