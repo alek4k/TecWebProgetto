@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    font-family: Montserrat,Verdana, Arial, Helvetica, sans-serif;
+}
+
 .container {
     display: block;
     margin: auto;
@@ -20,20 +24,20 @@
 
 /**************** header bar logo/contatti *********/
 #topHeader {
-    background-color: #0009;
+    background-color: #000000b3;
 }
 
 #header-main {
     padding: 0.5em 0;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -moz-box;         /* OLD - Firefox 19 */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
 #logo {
-    height: 4.5em;
+    height: 5em;
 }
 
 #contact-header {
@@ -54,7 +58,7 @@
     padding-right: 0.1em;
 
 }
-/************************************************/
+/****************** menu ******************************/
 
 #navbar {
     position: static;
@@ -62,11 +66,45 @@
 }
 
 #navbar-content {
-    background-color: black;
-    height: 3em;
+    background-color: #ffffff;
+    border-bottom: 0.1em solid #000000b3;
 }
 
+#menu {
+}
 
+#menu li {
+    display: inline-block;
+}
+
+#menu li :first-child {
+    margin-left: 0.5em;
+}
+
+#menu li a {
+    display: block;
+    text-align: center;
+    padding: 1em 0.5em 1em 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+/* mouse over link */
+#menu li a:hover {
+    color: #00cc00;
+}
+
+/* selected link */
+#menu li a:active {
+    color: green;
+}
+
+.active a {
+    color: #00cc00!important;
+}
+
+/******************* generic *************************/
 
 .left {
     float: left;
@@ -98,7 +136,7 @@
 }
 
 .material-icons {
-    color: white;
+    color: #ffffff;
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
