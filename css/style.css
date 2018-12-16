@@ -13,6 +13,14 @@ body {
     width: 55%;
 }
 
+.content {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('http://www.rifugio-mongioie.com/site/wp-content/uploads/2015/01/background-3.jpg');
+    padding-bottom: 5em;
+}
+
 .imgFull {
     height: 100vh;
     display: block;
@@ -131,6 +139,33 @@ body {
     vertical-align: middle;
 }
 
+hr {
+    color: #00cc00;
+}
+
+.circle {
+    display: inline-block;
+    text-align: center;
+    width: 12em;
+    height: 12em;
+    color: black;
+    border-radius: 6em;
+    border: 0.2em solid #00cc00;
+    margin: auto;
+}
+
+.circle-text {
+    margin-top: 3em;
+    font-size: 1.3em;
+}
+
+.paragraph {
+    font-size: 2em;
+    border-left: 0.2em solid #00cc00;
+    padding-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
 /******************* home *************************/
 
 #title-home {
@@ -144,12 +179,65 @@ body {
     background-color: #000000b3;
 }
 
-#apertura {
-    height: 900px;
-}
-
 #metri {
     color: #00cc00;
+}
+
+#apertura {
+    text-align: center;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+#apertura h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+}
+
+#apertura h3 {
+    font-size: 2em;
+    margin-bottom: 0.3em;
+}
+
+#descrizione {
+    margin-bottom: 5em;
+    font-size: 1.2em;
+}
+
+#servizi {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+/*************** footer **********************/
+
+#footer {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    background-color: #2a3f4b;
+}
+
+#footer img {
+    display: inline-block;
+    max-width: 15%;
+    height: auto;
+}
+
+#footer div {
+    display: inline-block;
+    width: 70%;
+}
+
+#footer em {
+    color: #ffffff;
+}
+
+#linkAdmin {
+    display: block;
+    color: #ffffff;
 }
 
 /************ icone google *************/
