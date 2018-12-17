@@ -11,6 +11,9 @@
           content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri"/>
     <meta name="language" content="italian it"/>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen,mobile"/>
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" media="screen,mobile"/>
+    <link rel="stylesheet" type="text/css" href="css/solid.min.css" media="screen,mobile"/>
+    <link rel="stylesheet" type="text/css" href="css/brands.min.css" media="screen,mobile"/>
     <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
     <script type="text/javascript" src="js/headerScroll.js"></script>
 </head>
@@ -26,7 +29,7 @@
                     <div class="right">
                         <div class="firstContactItem vertical-align-block">
                             <div class="vertical-align-block">
-                                <i class="material-icons left">call</i>
+                                <i class="fas fa-phone fa-2x left"></i>
                             </div>
                             <div class="vertical-align-block">
                                 <p>TELEFONO</p>
@@ -35,7 +38,7 @@
                         </div>
                         <div class="vertical-align-block">
                             <div class="vertical-align-block">
-                                <i class="material-icons left">email</i>
+                                <i class="fas fa-at fa-2x left"></i>
                             </div>
                             <div class="vertical-align-block">
                                 <p>EMAIL</p>
@@ -64,22 +67,28 @@
         </div>
     </div>
 
-    <div class="content">
+    <div id="apertura" class="main-padding">
         <div class="container">
-            <div id="apertura">
-                <h2>Stagione invernale</h2>
-                <h3>Siamo aperti dal 9 Dicembre 2018 al 3 Marzo 2019</h3>
-                <hr />
+            <h2>Stagione invernale</h2>
+            <h3>Siamo aperti dal 9 Dicembre 2018 al 3 Marzo 2019</h3>
+            <div class="hr-block">
+                <div class="hr-line"></div>
+                <div class="hr-icon"><i class="fas fa-tree fa-3x" aria-hidden="true"></i></div>
+                <div class="hr-line"></div>
             </div>
+        </div>
+    </div>
+    <div class="container main-padding">
+        <h4 class="paragraph">Il rifugio</h4>
+        <p id="descrizione">
+            Situato a 1796 metri, in località Sella di Pradonego, nel comune di Pieve di Cadore (Belluno), l’edificio,  dopo recenti lavori di ristrutturazione e ampliamento, costituisce una meraviglioso punto di passaggio tra il Cadore, sul quale si affaccia come un balcone naturale, e la Val Boite , lungo un percorso che cinge ad est la montagna (3263 mt) da cui prende il nome.
+            Di proprietá del CAI di Treviso, il Rifugio Antelao fu voluto e costruito nel 1948 dalla scrittrice e alpinista Alma Bevilacqua (più conosciuta con lo pseudonimo di Giovanna Zangrandi) per valorizzare una zona dolomitica poco nota, da lei apprezzata ed amata durante la lotta partigiana.
 
-            <h4 class="paragraph">Il rifugio</h4>
-            <p id="descrizione">
-                Situato a 1796 metri, in località Sella di Pradonego, nel comune di Pieve di Cadore (Belluno), l’edificio,  dopo recenti lavori di ristrutturazione e ampliamento, costituisce una meraviglioso punto di passaggio tra il Cadore, sul quale si affaccia come un balcone naturale, e la Val Boite , lungo un percorso che cinge ad est la montagna (3263 mt) da cui prende il nome.
-                Di proprietá del CAI di Treviso, il Rifugio Antelao fu voluto e costruito nel 1948 dalla scrittrice e alpinista Alma Bevilacqua (più conosciuta con lo pseudonimo di Giovanna Zangrandi) per valorizzare una zona dolomitica poco nota, da lei apprezzata ed amata durante la lotta partigiana.
-
-                La storia della costruzione del Rifugio Antelao e della vita fra i monti in quel periodo sono raccontati in “Il Campo Rosso”, pubblicato nel 1959 in cui Giovanna Zangrandi racconta la sua storia.
-            </p>
-
+            La storia della costruzione del Rifugio Antelao e della vita fra i monti in quel periodo sono raccontati in “Il Campo Rosso”, pubblicato nel 1959 in cui Giovanna Zangrandi racconta la sua storia.
+        </p>
+    </div>
+    <div class="content main-padding">
+        <div class="container">
             <h4 class="paragraph">Servizi</h4>
             <div id="servizi">
                 <div class="circle">
@@ -116,7 +125,7 @@
             <a href="http://validator.w3.org/check?uri=referer">
                 <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict" />
             </a>
-            <div>
+            <div id="footer-text">
                 <em>Progetto del corso di Tecnologie Web 2018-2019</em>
                 <strong><a id="linkAdmin" href="#">Pannello di amministrazione</a></strong>
             </div>
