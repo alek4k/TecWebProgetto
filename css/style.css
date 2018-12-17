@@ -3,8 +3,14 @@
     padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: Montserrat,Verdana, Arial, Helvetica, sans-serif;
+    min-height: 100%;
+    position: relative;
 }
 
 .container {
@@ -13,11 +19,12 @@ body {
     width: 55%;
 }
 
-.content {
+#content {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-image: url('http://www.rifugio-mongioie.com/site/wp-content/uploads/2015/01/background-3.jpg');
+    padding-bottom: 15em;
 }
 
 .imgFull {
@@ -27,6 +34,7 @@ body {
     background-size: cover;
     background-position: center;
     background-image: url('../images/rifugio2.jpg');
+    position: relative;
 }
 
 /**************** header bar logo/contatti *********/
@@ -247,6 +255,11 @@ hr {
     padding-top: 1.5em;
     padding-bottom: 1.5em;
     background-color: #2a3f4b;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 #footer img {
@@ -268,41 +281,3 @@ hr {
     display: block;
     color: #ffffff;
 }
-
-/************ icone google *************/
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url(../images/iconfont/MaterialIcons-Regular.woff) format('woff')
-}
-
-.material-icons {
-
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-
-    /* Support for IE. */
-    font-feature-settings: 'liga';
-}
-
-/****************************************/
