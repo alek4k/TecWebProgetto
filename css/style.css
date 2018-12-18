@@ -16,7 +16,7 @@ body {
 .container {
     display: block;
     margin: auto;
-    width: 55%;
+    width: 65%;
 }
 
 #content {
@@ -98,10 +98,11 @@ body {
 
 #menu li {
     display: inline-block;
+    margin-left: 3em;
 }
 
 #menu li :first-child {
-    margin-left: 0.5em;
+    margin: 0;
 }
 
 #menu li a {
@@ -174,7 +175,7 @@ hr {
 }
 
 .paragraph {
-    font-size: 2em;
+    font-size: 1.8em;
     border-left: 0.2em solid #00cc00;
     padding-left: 0.5em;
     margin-bottom: 0.5em;
@@ -209,17 +210,20 @@ hr {
 }
 
 #apertura h2 {
-    font-size: 2.5em;
-    margin-bottom: 0.3em;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.1em;
 }
 
 #apertura h3 {
-    font-size: 2em;
+    font-size: 1.5em;
     margin-bottom: 1em;
+    font-weight: normal;
+    word-spacing: 0.5em;
 }
 
 #descrizione {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 #servizi {
