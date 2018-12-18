@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    font-family: Montserrat,Verdana, Arial, Helvetica, sans-serif;
+    font-family: Hind, sans-serif;
     min-height: 100%;
     position: relative;
 }
@@ -23,7 +23,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url('http://www.rifugio-mongioie.com/site/wp-content/uploads/2015/01/background-3.jpg');
+    background-image: url('../images/sfondo_foresta.jpg');
     padding-bottom: 15em;
 }
 
@@ -127,6 +127,7 @@ body {
 
 .active a {
     cursor: default;
+    pointer-events: none;
     font-weight: bold;
     text-decoration: underline #00cc00!important;
 }
@@ -158,6 +159,13 @@ hr {
     color: #00cc00;
 }
 
+.itemToAlign {
+    width: 45%;
+    margin: auto;
+    margin-right: 0;
+    align-self: center;
+}
+
 .circle {
     display: inline-block;
     text-align: center;
@@ -186,6 +194,14 @@ hr {
     padding-bottom: 5em;
 }
 
+.flexible {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
 /******************* home *************************/
 
 #title-home {
@@ -205,7 +221,7 @@ hr {
 
 #apertura {
     text-align: center;
-    background-image: url('http://www.rifugio-mongioie.com/site/wp-content/uploads/2015/01/bg-1.jpg');
+    background-image: url('../images/sfondo_texture.jpg');
     background-repeat: repeat;
 }
 
@@ -224,6 +240,21 @@ hr {
 
 #descrizione {
     font-size: 1.1em;
+}
+
+.description-text {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right:auto
+    margin-left: 0;
+    align-self: center;
+    width: 45%;
+}
+
+#img-description {
+    width: 100%;
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+    border-radius: .25rem;
 }
 
 #servizi {
