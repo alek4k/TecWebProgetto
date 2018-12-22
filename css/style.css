@@ -19,12 +19,15 @@ body {
     width: 65%;
 }
 
-#content {
+#content-service {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-image: url('../images/sfondo_foresta.jpg');
-    padding-bottom: 15em;
+}
+
+.before-footer {
+    padding-bottom: 15em!important;
 }
 
 .imgFull {
@@ -90,6 +93,8 @@ body {
 #navbar-content {
     background-color: #ffffff;
     border-bottom: 0.1em solid #000000b3;
+    border-left: 0.1em solid #ffffff;
+    border-right: 0.1em solid #ffffff;
 }
 
 #menu {
@@ -140,6 +145,14 @@ body {
 
 .text-center {
     text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
 }
 
 .left {
@@ -202,6 +215,49 @@ hr {
     display: flex;
 }
 
+.btn {
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    border: 0.12em solid #00cc00;
+    border-radius: 10em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.3em;
+    font-size: 1.1em;
+    color: #00cc00;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -o-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.btn:hover {
+    background-color: #00cc00;
+    color: #ffffff;
+    -webkit-box-shadow: 0 7px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -moz-box-shadow: 0 7px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -o-box-shadow: 0 7px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 7px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.btn:active {
+    background-color: green;
+    border-color: green;
+    color: #ffffff;
+}
+
+.btn-submit {
+    margin-top: 1.2em;
+}
+
+.input-block {
+    display: inline-block;
+    width: 45%;
+    margin-top: 1em;
+ }
+
 /******************* home *************************/
 
 #title-home {
@@ -209,7 +265,7 @@ hr {
     top: 50%;
     width: inherit;
     color: #ffffff;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.94);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.94); /* todo: cambiare in em se si tengono le ombre */
     font-size: 3em;
     border: 0.01em solid #ffffff;
     background-color: #000000b3;
@@ -245,7 +301,7 @@ hr {
 .description-text {
     margin-top: auto;
     margin-bottom: auto;
-    margin-right:auto
+    margin-right:auto;
     margin-left: 0;
     align-self: center;
     width: 45%;
@@ -253,7 +309,7 @@ hr {
 
 #img-description {
     width: 100%;
-    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.5em 1.5em 0 rgba(0, 0, 0, 0.3);
     border-radius: .25rem;
 }
 
@@ -282,6 +338,22 @@ hr {
     position: relative;
     top: 0.2em;
     color: #00cc00;
+}
+
+/*************** login **********************/
+
+#content-login {
+    margin-top: 5em;
+}
+
+#content-login form {
+    margin-top: 1em;
+}
+
+#login-label {
+    margin-bottom: 1em;
+    font-size: 2em;
+    letter-spacing: 0.1em;
 }
 
 /*************** footer **********************/

@@ -11,10 +11,8 @@
           content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri"/>
     <meta name="language" content="italian it"/>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="handheld, screen"/>
-    <link rel="stylesheet" type="text/css" href="css/tablet.css"
-          media="handheld, screen and (max-width:768px),	only screen and (max-device-width:768px)"/>
-    <link rel="stylesheet" type="text/css" href="css/mobile.css"
-          media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" type="text/css" href="css/tablet.css" media="handheld, screen and (max-width:768px),	only screen and (max-device-width:768px)"/>
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
     <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" media="handheld, screen"/>
     <link rel="stylesheet" type="text/css" href="css/solid.min.css" media="handheld, screen"/>
@@ -57,7 +55,7 @@
 <div id="navbar">
     <div id="navbar-content" class="container">
         <ul id="menu">
-            <li class="active"><a lang="en">Home</a></li>
+            <li><a href="index.html" lang="en">Home</a></li>
             <li><a href="#" target="_top">Dove siamo</a></li>
             <li><a href="#" target="_top">Prenota</a></li>
             <li><a href="#" target="_top">Itinerari</a></li>
@@ -67,20 +65,45 @@
 </div>
 
 
-<div></div>
+<div id="content-login" class="container text-center before-footer">
+    <h1 id="login-label">Login</h1>
+    <div class="hr-block">
+        <div class="hr-line"></div>
+        <div class="hr-icon"><i class="fas fa-lock fa-3x"></i></div>
+        <div class="hr-line"></div>
+    </div>
+
+    <form action="" target="_blank" method="POST">
+        <div class="input-block text-right">
+            <label for="user">Nome utente:</label>
+        </div>
+        <div class="input-block text-left">
+            <input type="text" name="username" id="user" required="required"/>
+        </div>
+        <div class="input-block text-right">
+            <label for="pwd">Password:</label>
+        </div>
+        <div class="input-block text-left">
+            <input type="password" name="password" id="pwd" required="required"/>
+        </div>
+        <div>
+            <input class="btn btn-submit" type="submit" value="accedi"/>
+        </div>
+    </form>
+</div>
 
 
 <div id="footer" class="text-center">
     <div class="container">
         <a href="http://validator.w3.org/check?uri=referer">
-            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict"/>
+            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict" />
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
             <strong><a id="linkAdmin" href="#">Pannello di amministrazione</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
-            <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!"/>
+            <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!" />
         </a>
     </div>
 </div>
