@@ -8,15 +8,14 @@
     <meta name="description" content="Rifugio alpino"/>
     <meta name="author" content="Alberto Corrocher, Alessandro Lovo, Amedeo Meggiolaro, Victor Ducta"/>
     <meta name="keywords"
-          content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri"/>
+          content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri, bosco"/>
     <meta name="language" content="italian it"/>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="handheld, screen"/>
-    <link rel="stylesheet" type="text/css" href="css/tablet.css" media="handheld, screen and (max-width:768px),	only screen and (max-device-width:768px)"/>
-    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" type="text/css" href="css/tablet.css" media="handheld, screen and (max-width:992px),	only screen and (max-device-width:992px)"/>
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
     <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" media="handheld, screen"/>
     <link rel="stylesheet" type="text/css" href="css/solid.min.css" media="handheld, screen"/>
-    <link rel="stylesheet" type="text/css" href="css/brands.min.css" media="handheld, screen"/>
     <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
     <script type="text/javascript" src="js/headerScroll.js"></script>
 </head>
@@ -28,7 +27,7 @@
                 <div class="vertical-align-block">
                     <img id="logo" src="images/logo.png" alt="logo del rifugio Paolotti"/>
                 </div>
-                <div id="contact-header" class="vertical-align-block">
+                <div id="contact-header" class="vertical-align-block hide-on-med-and-down">
                     <div class="right">
                         <div class="firstContactItem vertical-align-block">
                             <div class="vertical-align-block">
@@ -53,7 +52,7 @@
             </div>
         </div>
 
-        <div id="navbar">
+        <div id="navbar" class="hide-on-small-only">
             <div id="navbar-content" class="container">
                 <ul id="menu">
                     <li class="active"><a href="" lang="en">Home</a></li>
@@ -66,7 +65,7 @@
         </div>
 
         <div class="container text-center">
-            <h1 id="title-home">RIFUGIO PAOLOTTI <span id="metri">MT. 1750</span></h1>
+            <h1 id="title-home">RIFUGIO PAOLOTTI <br class="show-on-small"/><span id="metri">MT. 1750</span></h1>
         </div>
     </div>
 
@@ -81,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="container main-padding">
+    <div id="content-description" class="container main-padding">
         <h4 class="paragraph">Il rifugio</h4>
         <div class="flexible">
             <div class="vertical-align-block description-text">

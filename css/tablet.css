@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Hind, sans-serif;
+}
+
+.container {
+    display: block;
+    margin: auto;
+    width: 85%;
+}
+
+.hide-on-med-and-down {
+    display: none;
+}
+
+#servizi {
+    display: block;
+}
+
+.circle {
+    display: block;
+    margin-bottom: 1em;
+    width: 12em;
+    height: 12em;
+    border-radius: 6em;
+}

@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Hind, sans-serif;
+}
+
+.container {
+    display: block;
+    margin: auto;
+    width: 90%;
+}
+
+.hide-on-small-only {
+    display: none;
+}
+
+#menu li {
+    display: block;
+    margin-left: 0;
+}
+
+#header-main .vertical-align-block {
+    margin: auto;
+}
+
+#title-home {
+    top: 48%;
+    font-size: 2em;
+}
+
+#content-description .vertical-align-block {
+    display: block;
+}
+
+#content-description .flexible {
+    display: block;
+}
+
+.description-text {
+    width: auto;
+}
+
+.itemToAlign {
+    width: 100%;
+    margin-top: 2em;
+}
+
+#img-description {
+    width: 100%;
+}
+
+.before-footer {
+    padding-bottom: 10em !important;
+}
