@@ -1,10 +1,13 @@
 <?php
 
+require_once ('./Utilities/Base64.php');
+use Utilities\Base64;
 
 class Admin
 {
     private $data = [];
-    private $columns = array('email', 'password', 'test');
+    private $columns = array('Id', 'username', 'email', 'password', 'token', 'token_generation', 'token_expiration');
+    const EXPIRING_TIME = 60 * 60 * 24;
 
     public function register(& $error) : bool
     {
@@ -36,7 +39,7 @@ class Admin
     public function login(& $error) : bool
     {
         $admin = new Admin();
-        $admin->setEmail($this->getEmail());
+        $admin->setUsername($this->getUsername());
         $pwd = $this->getPassword();
         $table = static::getCollectionName();
 
@@ -75,10 +78,30 @@ class Admin
         */
     }
 
+    public function updateAfterLogin()
+    {
+        $db = new Database();
+        $db->update(static::getCollectionName(), array($this->getToken(),$this->getTokenGeneration(),$this->getTokenExpiration(),$this->getUsername()), "token = ?, token_generation = ?, token_expiration = ?", "username = ?");
+    }
+
+    public function setUsername($name)
+    {
+        if ((!is_string($name)) || (strlen($name) <= 0)) {
+            throw new InvalidArgumentException("Invalid Username");
+        }
+
+        $this->data['username'] = $name;
+    }
+
+    public function getUsername()
+    {
+        return $this->data['username'];
+    }
+
     public function setEmail($email)
     {
         if ((!is_string($email)) || (strlen($email) <= 0)) {
-            throw new \InvalidArgumentException("Invalid Email");
+            throw new InvalidArgumentException("Invalid Email");
         }
 
         $this->data['email'] = $email;
@@ -101,7 +124,7 @@ class Admin
     public function setPassword($password)
     {
         if ((!is_string($password)) || (strlen($password) <= 0)) {
-            throw new \InvalidArgumentException("Invalid password");
+            throw new InvalidArgumentException("Invalid password");
         }
 
         $this->data['password'] = $password;
@@ -115,7 +138,7 @@ class Admin
     private static function generatePasswordHash($password)
     {
         if ((!is_string($password)) || (strlen($password) <= 0)) {
-            throw new \InvalidArgumentException("Invalid password");
+            throw new InvalidArgumentException("Invalid password");
         }
 
         return password_hash($password, PASSWORD_DEFAULT);
@@ -129,11 +152,11 @@ class Admin
     public static function checkHashedPassword($password, $hash)
     {
         if ((!is_string($hash)) || (strlen($hash) <= 0)) {
-            throw new \InvalidArgumentException("Invalid password hash");
+            throw new InvalidArgumentException("Invalid password hash");
         }
 
         if ((!is_string($password)) || (strlen($password) <= 0)) {
-            throw new \InvalidArgumentException("Invalid password");
+            throw new InvalidArgumentException("Invalid password");
         }
 
         return password_verify($password, $hash);
@@ -147,6 +170,98 @@ class Admin
         }
         return lcfirst($classname);
     }
+
+    public function setIsActive($value)
+    {
+        if ((!is_int($value)) || ($value < 0 || $value > 1)) {
+            throw new InvalidArgumentException("Invalid parameter login");
+        }
+
+        $this->data['isActive'] = $value;
+    }
+
+    public function getIsActive()
+    {
+        return $this->data['isActive'];
+    }
+
+    public function getToken()
+    {
+        return $this->data['token'];
+    }
+
+    public function setToken($token) {
+        $this->data['token'] = $token;
+    }
+
+    public function getTokenExpiration()
+    {
+        return $this->data['token_expiration'];
+    }
+
+    public function setTokenExpiration($token_expiration)
+    {
+        $this->data['token_expiration'] = $token_expiration;
+    }
+
+    public function getTokenGeneration()
+    {
+        return $this->data['token_generation'];
+    }
+
+    public function setTokenGeneration($token_generation)
+    {
+        $this->data['token_generation'] = $token_generation;
+    }
+
+    /**
+     * Genera un token univoco che identifica una sessione utente.
+     *
+     * @return string : the token
+     */
+    public function addAuthToken()
+    {
+        if (is_null($this->getUsername())) {
+            return null;
+        }
+
+        $token = Base64::encode((string)uniqid(bin2hex(openssl_random_pseudo_bytes(12))).openssl_random_pseudo_bytes(32));
+
+        $this->setToken($token);
+        $this->setTokenGeneration(date("Y-m-d H:i:s"));
+        $this->setTokenExpiration(date("Y-m-d H:i:s", strtotime("+30 minutes")));
+
+        return $this->getShortCode().$token;
+    }
+
+    public function getShortCode()
+    {
+        $this->data["shortcode"] = (!array_key_exists("shortcode", $this->data)) ? bin2hex(openssl_random_pseudo_bytes(8)) : $this->data["shortcode"];
+
+        if (strlen($this->data["shortcode"]) != 16) {
+            throw new RuntimeException("Bad random number generation");
+        }
+
+        return $this->data["shortcode"];
+    }
+
+
+
+    /*public static function encode($message, $urlCompatible = true) : string
+    {
+        //check for the message type
+        if (!is_string($message)) {
+            throw new \InvalidArgumentException('the binary unsafe content must be given as a string');
+        }
+        //check for url safety param
+        if (!is_bool($urlCompatible)) {
+            throw new \InvalidArgumentException('the binary unsafe content must be given as a string');
+        }
+        //get the base64 url unsafe
+        $encoded = base64_encode($message);
+        //return the url safe version if requested
+        return ($urlCompatible) ? rtrim(strtr($encoded, '+/=', '-_~'), '~') : $encoded;
+    }*/
 
 
 }
