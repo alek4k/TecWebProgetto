@@ -14,10 +14,8 @@ body {
     position: relative;
 }
 
-@media only screen and (min-width: 600px) {
-    .show-on-small {
-        display: none;
-    }
+.show-on-small {
+    display: none;
 }
 
 .container {
@@ -53,7 +51,7 @@ body {
 
 /**************** header bar logo/contatti *********/
 #topHeader {
-    background-color: #000000b3;
+    background-color: rgba(0,0,0,0.7);
 }
 
 #header-main {
@@ -103,7 +101,7 @@ body {
 
 #navbar-content {
     background-color: #ffffff;
-    border-bottom: 0.1em solid #000000b3;
+    border-bottom: 0.1em solid rgba(0,0,0,0.7);
     border-left: 0.1em solid #ffffff;
     border-right: 0.1em solid #ffffff;
 }
@@ -141,7 +139,7 @@ body {
 
 /* selected link */
 #menu li a:active {
-    color: green;
+    color: #008000;
 }
 
 .active a {
@@ -261,8 +259,8 @@ hr {
 }
 
 .btn:active {
-    background-color: green;
-    border-color: green;
+    background-color: #008000;
+    border-color: #008000;
     color: #ffffff;
 }
 
@@ -283,10 +281,10 @@ hr {
     top: 50%;
     width: inherit;
     color: #ffffff;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.94); /* todo: cambiare in em se si tengono le ombre */
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.94);
     font-size: 3em;
     border: 0.01em solid #ffffff;
-    background-color: #000000b3;
+    background-color: rgba(0,0,0,0.7);
 }
 
 #metri {
@@ -340,22 +338,22 @@ hr {
 }
 
 .hr-block {
-    display: flex;
-    width: 50%;
+    width: 100%;
     margin: auto;
+    display: block;
 }
 
 .hr-line {
-    width: 100%;
-    position: relative;
+    width: 20%;
     margin: 1em;
     border-bottom: 0.1em solid #000;
+    display: inline-block;
 }
 
 .hr-icon {
-    position: relative;
     top: 0.2em;
     color: #00cc00;
+    display: inline-block;
 }
 
 /*************** login **********************/

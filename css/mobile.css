@@ -19,6 +19,10 @@ body {
     display: none;
 }
 
+.show-on-small {
+    display: block;
+}
+
 #menu li {
     display: block;
     margin-left: 0;
