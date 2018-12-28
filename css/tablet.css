@@ -12,13 +12,35 @@ body {
 }
 
 .container {
-    display: block;
-    margin: auto;
     width: 85%;
 }
 
 .hide-on-med-and-down {
     display: none;
+}
+
+#content-description .vertical-align-block {
+    display: block;
+}
+
+#content-description .flexible {
+    display: block;
+}
+
+.description-text {
+    width: auto;
+}
+
+.itemToAlign {
+    text-align: center;
+    width: 75%;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#img-description {
+    width: 100%;
 }
 
 #servizi {
@@ -31,4 +53,13 @@ body {
     width: 12em;
     height: 12em;
     border-radius: 6em;
+}
+
+.before-footer {
+    padding-bottom: 10em !important;
+}
+
+.main-padding {
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
