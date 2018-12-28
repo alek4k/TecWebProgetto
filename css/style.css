@@ -46,6 +46,10 @@ body {
     position: relative;
 }
 
+.visible {
+    display: block!important;
+}
+
 /**************** header bar logo/contatti *********/
 #topHeader {
     background-color: #000000b3;
@@ -105,6 +109,8 @@ body {
 
 #menu {
     text-align: center;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 #menu li {

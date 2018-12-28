@@ -26,8 +26,20 @@ body {
     margin-left: 0;
 }
 
-#header-main .vertical-align-block {
-    margin: auto;
+#topHeader {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+#navbar {
+    position: fixed;
+    display: none;
+}
+
+#header-main {
+    text-align: center;
+    display: block;
 }
 
 #title-home {
@@ -41,6 +53,12 @@ body {
 
 #content-description .flexible {
     display: block;
+}
+
+#contact-header {
+    position: absolute;
+    right: 1em;
+    top: 2em;
 }
 
 .description-text {
@@ -58,4 +76,9 @@ body {
 
 .before-footer {
     padding-bottom: 10em !important;
+}
+
+.main-padding {
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
