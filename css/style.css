@@ -356,6 +356,10 @@ hr {
     display: inline-block;
 }
 
+.service-number {
+    font-weight: bold;
+}
+
 /*************** login **********************/
 
 #content-login {

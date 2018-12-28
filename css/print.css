@@ -1,0 +1,39 @@
+.hide-on-print {
+    display: none;
+}
+
+#header-main {
+    text-align: center;
+}
+
+#logo {
+    height: 5em;
+}
+
+#navbar {
+    display: none;
+}
+
+.show-on-small {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.itemToAlign {
+    text-align: center;
+}
+
+#img-rifugio-printer {
+    width: 80%;
+}
+
+#footer .container a {
+    display: none;
+}
+
+#linkAdmin {
+    display: none;
+}
