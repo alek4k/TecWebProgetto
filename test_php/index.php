@@ -1,8 +1,8 @@
 <?php
 
-require_once ('./Models/Database.php');
-require_once ('./Models/Admin.php');
-require_once('./Models/Template.php');
+require_once ('./Model/Database.php');
+require_once ('./Model/Admin.php');
+require_once('./Model/Template.php');
 
 echo "start ";
 

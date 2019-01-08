@@ -50,3 +50,12 @@
     padding-top: 2em;
     padding-bottom: 2em;
 }
+
+.content-half {
+    display: block;
+    width: 100%;
+}
+
+#newAdmin {
+    margin-top: 2em;
+}

@@ -3,9 +3,7 @@
 
 class Template {
 
-    private
-
-        $_arrTemplateData = array();
+    private $_arrTemplateData = array();
 
     public function __construct() {
     }

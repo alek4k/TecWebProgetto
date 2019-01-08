@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-    <title>Login</title>
+    <title>Amministratori</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="description" content="Rifugio alpino"/>
@@ -66,31 +66,44 @@
 </div>
 
 
-<div id="content-login" class="container text-center before-footer first-margin-mobile">
-    <h1 id="login-label">Login</h1>
+<div class="container text-center main-padding first-margin-mobile">
+    <h1 id="login-label">Gestione amministratori</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
-        <div class="hr-icon"><i class="fas fa-lock fa-3x"></i></div>
+        <div class="hr-icon"><i class="fas fa-user-cog fa-3x"></i></div>
         <div class="hr-line"></div>
     </div>
+</div>
 
-    <form action="administrator.php" method="post">
-        <div class="input-block text-right">
-            <label for="user">Nome utente:</label>
-        </div>
-        <div class="input-block text-left">
-            <input type="text" name="username" id="user" maxlength="8"/>
-        </div>
-        <div class="input-block text-right">
-            <label for="pwd">Password:</label>
-        </div>
-        <div class="input-block text-left">
-            <input type="password" name="password" id="pwd" maxlength="12"/>
-        </div>
-        <div>
-            <input class="btn btn-submit" type="submit" value="accedi"/>
-        </div>
-    </form>
+<div class="container before-footer">
+    <div class="content-half text-center">
+        <ul id="lista-admin">
+            <li><button title="Rimuovi amministratore admin" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</button> admin</li>
+            <li><button title="Rimuovi amministratore admin" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</button> admin</li>
+            <li><button title="Rimuovi amministratore admin" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</button> admin</li>
+            <li><button title="Rimuovi amministratore admin" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</button> admin</li>
+        </ul>
+    </div>
+    <div id="newAdmin" class="content-half text-center">
+        <h2>Nuovo amministratore</h2>
+        <form action="AdminManager.php" method="post">
+            <div class="input-block text-right">
+                <label for="user">Nome utente:</label>
+            </div>
+            <div class="input-block text-left">
+                <input type="text" name="username" id="user"/>
+            </div>
+            <div class="input-block text-right">
+                <label for="pwd">Password:</label>
+            </div>
+            <div class="input-block text-left">
+                <input type="password" name="password" id="pwd"/>
+            </div>
+            <div>
+                <input class="btn btn-submit" type="submit" value="aggiungi"/>
+            </div>
+        </form>
+    </div>
 </div>
 
 <div id="footer" class="text-center">

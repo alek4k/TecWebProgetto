@@ -3,21 +3,14 @@
 require_once('Model/Database.php');
 require_once('Model/Admin.php');
 
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    login();
-}
-else {
-    header('Location: /alovo');
-    die();
-}
-
-function login()
-{
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['token'])) {
     $error = "";
+    echo "entered";
 
     if (empty($_POST["username"])) {
         $error = "Username is required";
@@ -45,23 +38,17 @@ function login()
     $user = new Admin();
     $user->setUsername($username);
     $user->setPassword($password);
-    //$success = $userTest->register($error);
+    $success = $user->register($error);
 
-    if ($user->login($error)) {
-        $token = $user->addAuthToken();
-        $user->updateAfterLogin();
-        print("loggato! username:" . $user->getUsername() . " password: " . $user->getPassword() . " token: " . $user->getToken() . " miniToken: " . $token);
-        $_SESSION["username"] = $user->getUsername();
-        $_SESSION["token"] = $token;
-
-        header('Location: /alovo/test.php');
+    if ($success) {
+        echo "Amministratore aggiunto con successo!";
     }
     else {
-        $error = "ERROR: $error";
-        backToLogin();
+        echo "Si è verificato un errore: ".$error;
     }
-
-    die();
+}
+else {
+    echo "quit";
 }
 
 function backToLogin()

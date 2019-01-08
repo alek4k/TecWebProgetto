@@ -14,7 +14,6 @@ $(document).ready(function() {
     });
 
     $('#hamburger-menu').on("click",function(){
-        console.log("dai");
         $('#navbar').toggleClass("visible");
         if ($(this).find($(".fas")).hasClass('fa-times')) {
             $(this).find($(".fas")).removeClass('fa-times').addClass('fa-bar');

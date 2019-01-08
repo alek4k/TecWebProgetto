@@ -108,7 +108,8 @@ class Database
         return $result;
     }
 
-    public function update($table, $data, $setClause, $whereClause) {
+    public function update($table, $data, $setClause, $whereClause)
+    {
         $this->openConnection();
 
         $query = "UPDATE $table SET $setClause WHERE $whereClause";
@@ -124,7 +125,8 @@ class Database
         $this->closeConnection();
     }
 
-    public function delete($table, $data, $columns, $whereClause = null) {
+    public function delete($table, $data, $columns, $whereClause = null)
+    {
         $this->openConnection();
 
         if ($whereClause === null) { //cambiare con confronto tra id

@@ -52,6 +52,7 @@ body {
 /**************** header bar logo/contatti *********/
 #topHeader {
     background-color: rgba(0,0,0,0.7);
+    top: 0;
 }
 
 #header-main {
@@ -97,6 +98,7 @@ body {
     position: static;
     width: 100%;
     z-index: 10;
+    top: 0;
 }
 
 #navbar-content {
@@ -264,6 +266,24 @@ hr {
     color: #ffffff;
 }
 
+.btn-square {
+    border-radius: 0;
+}
+
+.btn-red {
+    border-color: #b10000;
+    color: #b10000;
+}
+
+.btn-red:hover {
+    background-color: #b10000;
+}
+
+.btn-red:active {
+    background-color: #A40000;
+    border-color: #A40000;
+}
+
 .btn-submit {
     margin-top: 1.2em;
 }
@@ -374,6 +394,27 @@ hr {
     margin-bottom: 1em;
     font-size: 2em;
     letter-spacing: 0.1em;
+}
+
+
+/*************** gestione admin **********************/
+
+#lista-admin {
+    list-style: none;
+}
+
+#lista-admin li {
+    margin-bottom: 1em;
+}
+
+#lista-admin li:last-child {
+    margin-bottom: 0;
+}
+
+.content-half {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
 }
 
 /*************** footer **********************/
