@@ -50,11 +50,11 @@ function login()
     if ($user->login($error)) {
         $token = $user->addAuthToken();
         $user->updateAfterLogin();
-        print("loggato! username:" . $user->getUsername() . " password: " . $user->getPassword() . " token: " . $user->getToken() . " miniToken: " . $token);
+        //print("loggato! username:" . $user->getUsername() . " password: " . $user->getPassword() . " token: " . $user->getToken() . " miniToken: " . $token);
         $_SESSION["username"] = $user->getUsername();
         $_SESSION["token"] = $token;
 
-        header('Location: /alovo/test.php');
+        header('Location: /alovo/admin.html');
     }
     else {
         $error = "ERROR: $error";
