@@ -26,9 +26,6 @@
     margin-right: auto;
 }
 
-#img-description {
-    width: 100%;
-}
 
 #servizi {
     display: block;
@@ -59,3 +56,11 @@
 #newAdmin {
     margin-top: 2em;
 }
+
+
+/*eventi*/
+.date {
+    font-size: 4em;
+}
+
+

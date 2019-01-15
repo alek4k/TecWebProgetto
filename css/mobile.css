@@ -57,3 +57,25 @@
 .first-margin-mobile {
     margin-top: 8em !important;
 }
+
+
+
+
+
+/*eventi*/
+.block-mobile {
+    display: block;
+}
+
+.itemToAligneventi {
+    width: 100%;
+}
+
+.itemToAligneventi img {
+    margin-top: 1em;
+}
+
+.eventi-text {
+    width: auto;
+}
+

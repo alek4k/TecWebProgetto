@@ -517,11 +517,17 @@ ul {
 	text-align: center;
 }
 
+.itemToAligneventi img {
+    width: 100%;
+    box-shadow: 0 0.5em 1.5em 0 rgba(0, 0, 0, 0.3);
+    border-radius: .25rem;
+}
+
 .date {
 	color: #476223;
 	font-weight: 700;
 	font-size: 6em;
-	font-family: "Montserrat";
+    font-family: "Montserrat", serif;
 	display: block;
 	line-height: 1em;
 }
@@ -530,13 +536,24 @@ ul {
 	color: #FFF;
 	background-color: #476223;
 	font-size: 1.25em;
-	font-family: "Montserrat";
+	font-family: "Montserrat", serif;
 	display: inline-block;
 	padding: 0 10px;
 }
 
-.titoloevento {
-	font-size: 1.4em;
-	line-height: 2.5em;
-	font-weight: bold;
+.eventi-text {
+    margin: auto;
+    width: 45%;
 }
+
+.eventi-text .titoloevento {
+    font-size: 1.4em;
+    line-height: 2.5em;
+    font-weight: bold;
+}
+
+.eventi-text p {
+    font-size: 1.1em;
+    line-height:1.5em;
+}
+
