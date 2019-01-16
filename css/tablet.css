@@ -63,4 +63,15 @@
     font-size: 4em;
 }
 
+/*itinerari*/
+.itinerari img {
+    width: 30%;
+}
 
+.itinerari li {
+    margin-left: 1em;
+}
+
+.descrizioneitinerari {
+    font-size: 1em;
+}

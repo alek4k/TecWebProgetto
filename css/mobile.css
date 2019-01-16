@@ -79,3 +79,26 @@
     width: auto;
 }
 
+
+/*itinerari*/
+.itinerari img {
+    width: 85%;
+    margin: auto;
+}
+
+.itinerari dd {
+    text-align: left;
+}
+
+.itinerari li {
+    margin-left: 0;
+    margin-top: 1.5em;
+}
+
+.itinerari .paragraph {
+    font-size: 1.4em;
+}
+
+.descrizioneitinerari {
+    line-height: 1em;
+}

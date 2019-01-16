@@ -21,6 +21,9 @@
     <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" media="handheld, screen"/>
     <link rel="stylesheet" type="text/css" href="css/solid.min.css" media="handheld, screen"/>
     <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/headerScroll.js"></script>
+    <script type="text/javascript" src="js/headerScrollMobile.js"></script>
+    <script type="text/javascript" src="js/hamburger.js"></script>
 </head>
 
 <body>
@@ -76,6 +79,48 @@
     </div>
 </div>
 
+<div class="container before-footer">
+<form action='' class='form'>
+  <p class='field required'>
+    <label class='label required' for='name'>Cognome e Nome</label>
+    <input class='text-input' id='name' name='name' type='text'>
+  </p>
+  <p class='field half'>
+    <label class='label' for='email'>E-mail</label>
+    <input class='text-input' id='email' name='email'>
+  </p>
+  <p class='field required half'>
+    <label class='label' for='Telefono'>Telefono</label>
+    <input class='text-input' id='telefono' name='telefono' type='text'>
+  </p>
+  <p class='field half required'>
+    <label class='label' for='dataarrivo'>Data Arrivo</label>
+	<input class="select" id="dataarrivo" name="dataarrivo">
+  </p>
+  <p class='field half'>
+    <label class='label' for='numeropersone'>Persone</label>
+	  <select class='select' id='select'>
+      <option value='1'>1</option>
+      <option value='2'>2</option>
+      <option value='3'>3</option>
+	  <option value='4'>4</option>
+	  <option value='5'>5</option>
+	  <option value='6'>6</option>
+	  <option value='7'>7</option>
+	  </select>
+  </p>
+  
+  <p class='field'>
+    <label class='label' for='about'>About</label>
+    <textarea class='textarea' cols='50' id='about' name='about' rows='4'></textarea>
+  </p>
+
+  <p class='field half'>
+    <input class='button' type='submit' value='Send'>
+  </p>
+
+</form>
+</div>
 
 <div id="footer" class="text-center">
     <div class="container">
@@ -91,6 +136,7 @@
         </a>
     </div>
 </div>
+
 
 </body>
 
