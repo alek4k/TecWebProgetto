@@ -102,3 +102,12 @@
 .descrizioneitinerari {
     line-height: 1em;
 }
+
+/*prenota*/
+.form .field.half {
+    width: 100%;
+}
+
+.errorText {
+    font-size: 1.2em;
+}
