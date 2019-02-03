@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    //form prenotazione
     $("#name").focusout(function () {
         validateNome();
     });
@@ -24,13 +25,29 @@ $(document).ready(function () {
         if ($('#btn_prenota').hasClass('btn-red'))
             event.preventDefault();
     });
+
+    //form login
+    $("#username").focusout(function () {
+        validateUsername();
+    });
+
+    $("#password").focusout(function () {
+       validatePassword();
+    });
+
+    $('#formLogin').submit(function( event ) {
+        validateUsername();
+        validatePassword();
+        if ($('#btn_login').hasClass('btn-red'))
+            event.preventDefault();
+    });
+
 });
 
 function validateNome() {
     var msg = $('#nomeError');
     var nome = $('#name').val();
     if (nome.length < 3 || nome.length > 40) {
-        msg.text("Inserire almeno 3 e massimo 40 caratteri per il nome");
         msg.removeClass('hidden');
         disablePrenotaBtn();
     }
@@ -48,7 +65,6 @@ function validateEmail() {
         enablePrenotaBtn();
     }
     else {
-        msg.text("Indirizzo email non valido");
         msg.removeClass('hidden');
         disablePrenotaBtn();
     }
@@ -62,7 +78,6 @@ function validateTelefono() {
         enablePrenotaBtn();
     }
     else {
-        msg.text("Numero di telefono non valido");
         msg.removeClass('hidden');
         disablePrenotaBtn();
     }
@@ -76,9 +91,34 @@ function validateData() {
         enablePrenotaBtn();
     }
     else {
-        msg.text("Inserire data nel formato gg/mm/aaaa");
         msg.removeClass('hidden');
         disablePrenotaBtn();
+    }
+}
+
+function validatePassword() {
+    var msg = $('#loginError');
+    var password = $('#password').val();
+    if (password.length > 7 && password.length < 13) {
+        msg.addClass('hidden');
+        enableLoginBtn();
+    }
+    else {
+        msg.removeClass('hidden');
+        disableLoginBtn();
+    }
+}
+
+function validateUsername() {
+    var msg = $('#loginError');
+    var username = $('#username').val();
+    if (username.length > 2 && username.length < 13) {
+        msg.addClass('hidden');
+        enableLoginBtn();
+    }
+    else {
+        msg.removeClass('hidden');
+        disableLoginBtn();
     }
 }
 
@@ -86,6 +126,12 @@ function disablePrenotaBtn() {
     var btnPrenota = $('#btn_prenota');
     btnPrenota.prop('disabled', true);
     btnPrenota.addClass('btn-red');
+}
+
+function disableLoginBtn() {
+    var btnLogin = $('#btn_login');
+    btnLogin.prop('disabled', true);
+    btnLogin.addClass('btn-red');
 }
 
 function enablePrenotaBtn() {
@@ -97,6 +143,15 @@ function enablePrenotaBtn() {
         $('#emailError').hasClass('hidden')) {
         btnPrenota.prop('disabled', false);
         btnPrenota.removeClass('btn-red');
+    }
+}
+
+function enableLoginBtn() {
+    var btnLogin = $('#btn_login');
+
+    if ($('#loginError').hasClass('hidden')) {
+        btnLogin.prop('disabled', false);
+        btnLogin.removeClass('btn-red');
     }
 }
 

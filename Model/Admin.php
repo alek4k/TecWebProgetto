@@ -46,9 +46,6 @@ class Admin
         $db = new Database();
         try {
             $results = $db->select($table, $admin->data, $this->columns);
-            //$results = $db->select("admin", array("email"=>"admin@admin.com"), array("email"));
-            //$results = $db->select("admin", array('2'), array("email"), 'email, test', 'test >= ?');
-            //var_dump($results);
         }
         catch (Exception $ex) {
             $error = $ex->getMessage();
@@ -76,6 +73,25 @@ class Admin
         $toDelete->setEmail("giovanni@admin.com");
         $db->delete("admin", $toDelete->data, $this->columns);
         */
+    }
+
+    public static function getAllAdmin()
+    {
+        $db = new Database();
+        $result = $db->selectAll(static::getCollectionName(), 'username');
+        return $result;
+    }
+
+    public function deleteAdmin(): bool
+    {
+        $db = new Database();
+        try {
+            $db->delete(static::getCollectionName(), $this->data, $this->columns);
+            return true;
+        }
+        catch (Exception $ex) {
+            return false;
+        }
     }
 
     public function updateAfterLogin()

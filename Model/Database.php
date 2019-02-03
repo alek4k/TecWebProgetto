@@ -108,6 +108,14 @@ class Database
         return $result;
     }
 
+    public function selectAll($table, $whatSelect = '*'): array
+    {
+        $this->openConnection();
+        $result = $this->pdo->query("SELECT $whatSelect FROM $table")->fetchAll();
+        $this->closeConnection();
+        return $result;
+    }
+
     public function update($table, $data, $setClause, $whereClause)
     {
         $this->openConnection();

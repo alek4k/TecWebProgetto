@@ -11,53 +11,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     login();
 }
 else {
-    header('Location: /alovo');
+    header('Location: /alovo/login.php');
     die();
 }
 
 function login()
 {
     $error = "";
+    $count = 0;
+    $_SESSION["error_login"] = false;
 
     if (empty($_POST["username"])) {
-        $error = "Username is required";
-        backToLogin();
+        $_SESSION["error_login"] = true;
+        $count += 1;
     }
-
     if (empty($_POST["password"])) {
-        $error = "Password is required";
-        backToLogin();
+        $_SESSION["error_login"] = true;
+        $count += 1;
     }
 
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    if ((!is_string($username)) || (strlen($username) < 3)) {
-        $error = "Invalid username";
-        backToLogin();
+    if ((!is_string($username)) || (strlen($username) < 3) || (strlen($username) > 12)) {
+        $_SESSION["error_login"] = true;
+        $count += 1;
+    }
+    if ((!is_string($password)) || (strlen($password) < 8) || (strlen($password) > 12)) {
+        $_SESSION["error_login"] = true;
+        $count += 1;
     }
 
-    if ((!is_string($password)) || (strlen($password) < 3)) {
-        $error = "Invalid password";
-        backToLogin();
-    }
+    if ($count > 0) backToLogin();
 
     $user = new Admin();
     $user->setUsername($username);
     $user->setPassword($password);
-    //$success = $userTest->register($error);
 
     if ($user->login($error)) {
         $token = $user->addAuthToken();
         $user->updateAfterLogin();
-        //print("loggato! username:" . $user->getUsername() . " password: " . $user->getPassword() . " token: " . $user->getToken() . " miniToken: " . $token);
         $_SESSION["username"] = $user->getUsername();
         $_SESSION["token"] = $token;
 
-        header('Location: /alovo/admin.html');
+        header('Location: /alovo/admin.php');
     }
     else {
-        $error = "ERROR: $error";
+        $_SESSION["error_login"] = true;
         backToLogin();
     }
 
@@ -66,6 +66,6 @@ function login()
 
 function backToLogin()
 {
-    header('Location: /alovo/login.html');
+    header('Location: /alovo/login.php');
     die();
 }

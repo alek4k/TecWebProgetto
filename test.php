@@ -6,4 +6,4 @@ echo "User: " . $_SESSION["username"] . " logged with token: " . $_SESSION["toke
 
 echo "\n error_name: " . $_SESSION["error_name"] . " error_email: " . $_SESSION["error_email"] .
      " error_telefono: " . $_SESSION["error_telefono"] . " error_persone: " . $_SESSION["error_numPersone"] .
-     " error_data: " . $_SESSION["error_data"];
+     " error_data: " . $_SESSION["error_data"] . " PRENOTAZIONE CREATA: " . $_SESSION["prenotazioneCreata"];

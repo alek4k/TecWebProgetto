@@ -53,6 +53,6 @@ else {
 
 function backToLogin()
 {
-    header('Location: /alovo/login.html');
+    header('Location: /alovo/login.php');
     die();
 }

@@ -1,11 +1,23 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (isset($_SESSION["token"])) {
+    header('Location: /alovo/admin.php');
+    die();
+}
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-    <title>Login</title>
+    <title>Login - Rifugio Paolotti</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="description" content="Rifugio alpino"/>
+    <meta name="description" content="Login amministratori Rifugio Paolotti"/>
     <meta name="author" content="Alberto Corrocher, Alessandro Lovo, Amedeo Meggiolaro, Victor Ducta"/>
     <meta name="keywords"
           content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri, bosco"/>
@@ -20,6 +32,7 @@
     <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
     <script type="text/javascript" src="js/headerScrollMobile.js"></script>
     <script type="text/javascript" src="js/hamburger.js"></script>
+    <script type="text/javascript" src="js/formValidation.js"></script>
 </head>
 
 <body>
@@ -59,7 +72,7 @@
         <ul id="menu">
             <li><a href="index.html" lang="en">Home</a></li>
             <li><a href="dovesiamo.html">Dove siamo</a></li>
-            <li><a href="prenota.html">Prenota</a></li>
+            <li><a href="prenota.php">Prenota</a></li>
             <li><a href="itinerari.html">Itinerari</a></li>
             <li><a href="eventi.html">Eventi</a></li>
         </ul>
@@ -67,29 +80,38 @@
 </div>
 
 
-<div id="content-login" class="container text-center before-footer first-margin-mobile">
-    <h1 id="login-label">Login</h1>
+<div class="container text-center first-margin-mobile">
+    <h1 class="titoli">Login</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
         <div class="hr-icon"><i class="fas fa-lock fa-3x"></i></div>
         <div class="hr-line"></div>
     </div>
+</div>
 
-    <form action="administrator.php" method="post">
-        <div class="input-block text-right">
-            <label for="user">Nome utente:</label>
+<div class="container before-footer">
+    <div class="margin2">
+        <?php if (!empty($_SESSION["error_login"])): ?>
+            <p id="loginError" class="errorText">Credenziali non valide</p>
+        <?php else: ?>
+            <p id="loginError" class="errorText hidden">Credenziali non valide</p>
+        <?php endif; ?>
+        <?php
+            $_SESSION["error_login"] = false;
+        ?>
+    </div>
+
+    <form action="administrator.php" method="post" class="form" id="formLogin">
+        <div class='field required'>
+            <label class='label required' for='username'>Username</label>
+            <input class='text-input' id='username' name='username' type='text'>
         </div>
-        <div class="input-block text-left">
-            <input type="text" name="username" id="user" maxlength="8"/>
+        <div class='field required'>
+            <label class='label required' for='password'>Password</label>
+            <input class='text-input' id='password' name='password' type='password'>
         </div>
-        <div class="input-block text-right">
-            <label for="pwd">Password:</label>
-        </div>
-        <div class="input-block text-left">
-            <input type="password" name="password" id="pwd" maxlength="12"/>
-        </div>
-        <div>
-            <input class="btn btn-submit" type="submit" value="accedi"/>
+        <div class="centerAlign">
+            <input class="btn btn-submit" id="btn_login" type="submit" value="accedi"/>
         </div>
     </form>
 </div>

@@ -1,3 +1,30 @@
+<?php
+
+require_once('Model/Database.php');
+require_once('Model/Admin.php');
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION["token"])) {
+    header('Location: /alovo/login.php');
+    die();
+}
+
+$listaAdmin = Admin::getAllAdmin();
+$i = 0;
+foreach ($listaAdmin as $admin) {
+    if ($admin['username'] === $_SESSION["username"]) {
+        unset($listaAdmin[$i]);
+        break;
+    }
+    $i += 1;
+}
+$_SESSION["amministratori"] = $listaAdmin;
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
@@ -18,7 +45,8 @@
     <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" media="handheld, screen"/>
     <link rel="stylesheet" type="text/css" href="css/solid.min.css" media="handheld, screen"/>
     <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
-    <script type="text/javascript" src="js/headerScroll.js"></script>
+    <script type="text/javascript" src="js/headerScrollMobile.js"></script>
+    <script type="text/javascript" src="js/hamburger.js"></script>
 </head>
 
 <body>
@@ -56,18 +84,16 @@
 <div id="navbar">
     <div id="navbar-content" class="container">
         <ul id="menu">
-            <li class="active"><a href="" lang="en">Home</a></li>
-            <li><a href="#">Dove siamo</a></li>
-            <li><a href="#">Prenota</a></li>
-            <li><a href="#">Itinerari</a></li>
+            <li class="active"><a href="" lang="en">Amministratori</a></li>
             <li><a href="#">Eventi</a></li>
+            <li><a href="#">Prenotazioni</a></li>
+            <li><a href="#">Logout</a></li>
         </ul>
     </div>
 </div>
 
-
-<div class="container text-center main-padding first-margin-mobile">
-    <h1 id="login-label">Gestione amministratori</h1>
+<div class="container text-center first-margin-mobile">
+    <h1 class="titoli">Gestione amministratori</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
         <div class="hr-icon"><i class="fas fa-user-cog fa-3x"></i></div>
@@ -75,32 +101,27 @@
     </div>
 </div>
 
-<div class="container before-footer">
-    <div class="content-half text-center">
+<div class="container before-footer margin2">
+    <div class="content-half margin2">
         <ul id="lista-admin">
-            <li><button title="Rimuovi amministratore admin" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</button> admin</li>
-            <li><button title="Rimuovi amministratore admin" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</button> admin</li>
-            <li><button title="Rimuovi amministratore admin" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</button> admin</li>
-            <li><button title="Rimuovi amministratore admin" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</button> admin</li>
+            <?php foreach ($_SESSION["amministratori"] as $admin): ?>
+                <li><a href="/alovo/delete.php?admin=<?php echo $admin['username']?>" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</a><?php echo ' '.$admin['username']; ?></li>
+            <?php endforeach; ?>
         </ul>
     </div>
-    <div id="newAdmin" class="content-half text-center">
+    <div id="newAdmin" class="content-half text-center margin2">
         <h2>Nuovo amministratore</h2>
-        <form action="AdminManager.php" method="post">
-            <div class="input-block text-right">
-                <label for="user">Nome utente:</label>
+        <form action="administrator.php" method="post" class="form" id="formLogin">
+            <div class='field half required'>
+                <label class='label required' for='username'>Username</label>
+                <input class='text-input' id='username' name='username' type='text'>
             </div>
-            <div class="input-block text-left">
-                <input type="text" name="username" id="user"/>
+            <div class='field half required'>
+                <label class='label required' for='password'>Password</label>
+                <input class='text-input' id='password' name='password' type='password'>
             </div>
-            <div class="input-block text-right">
-                <label for="pwd">Password:</label>
-            </div>
-            <div class="input-block text-left">
-                <input type="password" name="password" id="pwd"/>
-            </div>
-            <div>
-                <input class="btn btn-submit" type="submit" value="aggiungi"/>
+            <div class="centerAlign">
+                <input class="btn btn-submit" id="btn_login" type="submit" value="accedi"/>
             </div>
         </form>
     </div>
@@ -113,7 +134,7 @@
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
-            <strong><a id="linkAdmin" href="login.html">Pannello di amministrazione</a></strong>
+            <strong><a id="linkAdmin" href="login.php">Pannello di amministrazione</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
             <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!" />

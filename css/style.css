@@ -232,6 +232,7 @@ body {
 .btn {
     text-align: center;
     text-transform: uppercase;
+    text-decoration: none;
     background-color: #ffffff;
     border: 0.12em solid #00cc00;
     border-radius: 10em;
@@ -438,7 +439,7 @@ body {
 }
 
 #lista-admin li {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 
 #lista-admin li:last-child {
@@ -501,6 +502,10 @@ ul {
 
 .itinerari dt {
     margin-bottom: 1em;
+}
+
+.itinerari dd {
+    padding: 1.5em;
 }
 
 .itinerari img {
@@ -724,6 +729,7 @@ ul {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: flex-end;
+    margin-bottom: 0;
 }
 .form .field {
     width: 100%;
@@ -755,6 +761,51 @@ ul {
     line-height: 1.5em;
 }
 
+.successText {
+    color: #476223;
+    text-align: center;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
 .hidden {
     display: none;
 }
+
+/******** freccia per tornare su ( Home )*******/
+.to-top{
+    font-size:180%;
+    margin-top:3em;
+    color:black;
+    padding-top:1.8em;
+    display:block;/* or block */
+    position:relative;
+    border-color:black;
+    text-decoration:none;
+    transition:all .3s ease-out;
+    text-align: center;
+}
+.to-top:before{
+    content:'▲';
+    font-size:.9em;
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left:-.7em;
+    border:solid .13em black;
+    border-radius:10em;
+    width:1.4em;
+    height:1.4em;
+    line-height:1.3em;
+    border-color:inherit;
+    transition:transform .5s ease-in;
+    text-align:center;
+}
+.to-top:hover{
+    color:#00cc00;
+    border-color:#00cc00;
+}
+.to-top:hover:before{
+    transform: rotate(360deg);
+}
+
