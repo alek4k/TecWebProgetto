@@ -5,7 +5,7 @@ class Prenotazione
     private $data = [];
     private $columns = array('Id', 'nome', 'email', 'telefono', 'persone', 'data', 'note');
 
-    public function createPrenotazione(& $error) : bool
+    public function createPrenotazione(& $error): bool
     {
         //nome della classe/tabella corrente
         $table = static::getCollectionName();
@@ -21,6 +21,34 @@ class Prenotazione
         }
 
         return true;
+    }
+
+    public function delete(): bool
+    {
+        $db = new Database();
+        try {
+            $db->delete(static::getCollectionName(), $this->data, $this->columns);
+            return true;
+        }
+        catch (Exception $ex) {
+            return false;
+        }
+    }
+
+    public static function getAllPrenotazioni(): array
+    {
+        $db = new Database();
+        return $db->selectAll(static::getCollectionName());
+    }
+
+    public function setId($id)
+    {
+        $this->data['Id'] = $id;
+    }
+
+    public function getId()
+    {
+        return $this->data['Id'];
     }
 
     public function setName($name)
@@ -65,7 +93,7 @@ class Prenotazione
 
     public function setData($data)
     {
-        $this->data['data'] = date("Y-m-d",strtotime($data));
+        $this->data['data'] = date("Y-d-m",strtotime($data));
     }
 
     public function getData()

@@ -67,12 +67,9 @@ class Admin
         return false;
 
         /*
-         * test vari db
-        $db->update("admin", array("alek.lovo@gmail.com", "alessandro.lovo@gmail.com"), "email = ?", "email = ?");
-        $toDelete = new Admin();
-        $toDelete->setEmail("giovanni@admin.com");
-        $db->delete("admin", $toDelete->data, $this->columns);
-        */
+         *   test vari db
+         *   $db->update("admin", array("alek.lovo@gmail.com", "alessandro.lovo@gmail.com"), "email = ?", "email = ?");
+         */
     }
 
     public static function getAllAdmin()
@@ -93,7 +90,7 @@ class Admin
         return false;
     }
 
-    public function deleteAdmin(): bool
+    public function delete(): bool
     {
         $db = new Database();
         try {

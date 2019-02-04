@@ -564,6 +564,12 @@ ul {
 	box-shadow: 1px 3px 6px 4px #c0c0c0;
 }
 
+.evento ul {
+    margin-left: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
 .evento:hover {
 	box-shadow: 2px 6px 12px 8px #c0c0c0;
 }
@@ -809,3 +815,11 @@ ul {
     transform: rotate(360deg);
 }
 
+/* prenotazioni admin */
+.elencoPuntato {
+    list-style: unset!important;
+}
+
+.alignPrenotazioni {
+    width: 30%;
+}

@@ -24,15 +24,14 @@ foreach ($listaAdmin as $admin) {
 $_SESSION["amministratori"] = $listaAdmin;
 
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-    <title>Amministratori</title>
+    <title>Amministratori - Rifugio Paolotti</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="description" content="Rifugio alpino"/>
+    <meta name="description" content="Gestione amministratori pannello di controllo"/>
     <meta name="author" content="Alberto Corrocher, Alessandro Lovo, Amedeo Meggiolaro, Victor Ducta"/>
     <meta name="keywords"
           content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri, bosco"/>
@@ -84,9 +83,9 @@ $_SESSION["amministratori"] = $listaAdmin;
 <div id="navbar">
     <div id="navbar-content" class="container">
         <ul id="menu">
-            <li class="active"><a href="" lang="en">Amministratori</a></li>
+            <li class="active"><a href="">Amministratori</a></li>
             <li><a href="#">Eventi</a></li>
-            <li><a href="#">Prenotazioni</a></li>
+            <li><a href="prenotazioni.php">Prenotazioni</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
@@ -105,7 +104,7 @@ $_SESSION["amministratori"] = $listaAdmin;
     <div class="content-half margin2">
         <ul id="lista-admin">
             <?php foreach ($_SESSION["amministratori"] as $admin): ?>
-                <li><a href="/alovo/delete.php?admin=<?php echo $admin['username']?>" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</a><?php echo ' '.$admin['username']; ?></li>
+                <li><a href="delete.php?admin=<?php echo $admin['username']?>" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</a><?php echo ' '.$admin['username']; ?></li>
             <?php endforeach; ?>
         </ul>
     </div>

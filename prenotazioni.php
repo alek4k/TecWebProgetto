@@ -1,11 +1,60 @@
 <?php
+
+require_once('Model/Database.php');
+require_once('Model/Prenotazione.php');
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if (isset($_SESSION["token"])) {
-    header('Location: /alovo/admin.php');
+if (!isset($_SESSION["token"])) {
+    header('Location: /alovo/login.php');
     die();
+}
+
+$_SESSION["prenotazioni"] = Prenotazione::getAllPrenotazioni();
+
+function getMese($month) {
+    $mese = $month;
+    switch ($month) {
+        case 'January':
+            $mese = 'Gennaio';
+            break;
+        case 'February':
+            $mese = 'Febbraio';
+            break;
+        case 'March':
+            $mese = 'Marzo';
+            break;
+        case 'April':
+            $mese = 'Aprile';
+            break;
+        case 'May':
+            $mese = 'Maggio';
+            break;
+        case 'June':
+            $mese = 'Giugno';
+            break;
+        case 'July':
+            $mese = 'Luglio';
+            break;
+        case 'August':
+            $mese = 'Agosto';
+            break;
+        case 'September':
+            $mese = 'Settembre';
+            break;
+        case 'October':
+            $mese = 'Ottobre';
+            break;
+        case 'November':
+            $mese = 'Novembre';
+            break;
+        case 'December':
+            $mese = 'Dicembre';
+            break;
+    }
+    return $mese;
 }
 
 ?>
@@ -13,10 +62,10 @@ if (isset($_SESSION["token"])) {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-    <title>Login - Rifugio Paolotti</title>
+    <title>Prenotazioni - Rifugio Paolotti</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="description" content="Login amministratori Rifugio Paolotti"/>
+    <meta name="description" content="Storico prenotazioni effettuate"/>
     <meta name="author" content="Alberto Corrocher, Alessandro Lovo, Amedeo Meggiolaro, Victor Ducta"/>
     <meta name="keywords"
           content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri, bosco"/>
@@ -31,7 +80,6 @@ if (isset($_SESSION["token"])) {
     <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
     <script type="text/javascript" src="js/headerScrollMobile.js"></script>
     <script type="text/javascript" src="js/hamburger.js"></script>
-    <script type="text/javascript" src="js/formValidation.js"></script>
 </head>
 
 <body>
@@ -69,50 +117,48 @@ if (isset($_SESSION["token"])) {
 <div id="navbar">
     <div id="navbar-content" class="container">
         <ul id="menu">
-            <li><a href="index.html" lang="en">Home</a></li>
-            <li><a href="dovesiamo.html">Dove siamo</a></li>
-            <li><a href="prenota.php">Prenota</a></li>
-            <li><a href="itinerari.html">Itinerari</a></li>
-            <li><a href="eventi.html">Eventi</a></li>
+            <li><a href="admin.php">Amministratori</a></li>
+            <li><a href="#">Eventi</a></li>
+            <li class="active"><a>Prenotazioni</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
 </div>
 
-
 <div class="container text-center first-margin-mobile">
-    <h1 class="titoli">Login</h1>
+    <h1 class="titoli">Storico prenotazioni</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
-        <div class="hr-icon"><i class="fas fa-lock fa-3x"></i></div>
+        <div class="hr-icon"><i class="fas fa-user-cog fa-3x"></i></div>
         <div class="hr-line"></div>
     </div>
 </div>
 
 <div class="container before-footer">
-    <div class="margin2">
-        <?php if (!empty($_SESSION["error_login"])): ?>
-            <p id="loginError" class="errorText">Credenziali non valide</p>
-        <?php else: ?>
-            <p id="loginError" class="errorText hidden">Credenziali non valide</p>
-        <?php endif; ?>
-        <?php
-            $_SESSION["error_login"] = false;
-        ?>
+    <?php foreach ($_SESSION["prenotazioni"] as $prenotazione): ?>
+    <div class="flexible block-mobile evento">
+        <div class="vertical-align-block itemToAligneventi alignPrenotazioni hide-on-print">
+            <span class="date"><?php echo substr($prenotazione['data'], 8, 2)?></span>
+            <span class="month"><?php echo getMese(date("F", strtotime($prenotazione['data']))) ?></span>
+        </div>
+        <div class="vertical-align-block eventi-text">
+            <ul class="elencoPuntato">
+                <li><p><?php echo $prenotazione['nome'] ?></p></li>
+                <?php if (!empty($prenotazione["email"])): ?>
+                    <li><p><?php echo $prenotazione['email'] ?></p></li>
+                <?php endif; ?>
+                <li><p><?php echo $prenotazione['telefono'] ?></p></li>
+                <li><p>persone: <?php echo $prenotazione['persone'] ?></p></li>
+                <?php if (!empty($prenotazione["note"])): ?>
+                    <li><p><?php echo $prenotazione['note'] ?></p></li>
+                <?php endif; ?>
+            </ul>
+        </div>
+        <div class="vertical-align-block itemToAligneventi alignPrenotazioni hide-on-print">
+            <a href="delete.php?prenotazione=<?php echo $prenotazione['Id']?>" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</a>
+        </div>
     </div>
-
-    <form action="administrator.php" method="post" class="form" id="formLogin">
-        <div class='field required'>
-            <label class='label required' for='username'>Username</label>
-            <input class='text-input' id='username' name='username' type='text'>
-        </div>
-        <div class='field required'>
-            <label class='label required' for='password'>Password</label>
-            <input class='text-input' id='password' name='password' type='password'>
-        </div>
-        <div class="centerAlign">
-            <input class="btn btn-submit" id="btn_login" type="submit" value="accedi"/>
-        </div>
-    </form>
+    <?php endforeach; ?>
 </div>
 
 <div id="footer" class="text-center">
@@ -122,13 +168,14 @@ if (isset($_SESSION["token"])) {
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
-            <strong class="active"><a id="linkAdmin">Pannello di amministrazione</a></strong>
+            <strong><a id="linkAdmin" href="index.html">Torna al sito</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
             <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!" />
         </a>
     </div>
 </div>
+
 
 </body>
 
