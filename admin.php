@@ -87,7 +87,7 @@ $_SESSION["amministratori"] = $listaAdmin;
             <li class="active"><a href="" lang="en">Amministratori</a></li>
             <li><a href="#">Eventi</a></li>
             <li><a href="#">Prenotazioni</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
 </div>
@@ -111,7 +111,26 @@ $_SESSION["amministratori"] = $listaAdmin;
     </div>
     <div id="newAdmin" class="content-half text-center margin2">
         <h2>Nuovo amministratore</h2>
-        <form action="administrator.php" method="post" class="form" id="formLogin">
+        <?php if (!empty($_SESSION["error_createAdmin"])): ?>
+            <p class="errorText">Username non disponibile!</p>
+        <?php else: ?>
+            <?php if ($_SESSION["error_username_newAdmin"] === true): ?>
+                <p class="errorText">Inserire username di lunghezza tra 3 e 40 caratteri</p>
+            <?php else: ?>
+                <p class="errorText hidden">Inserire username di lunghezza tra 3 e 40 caratteri</p>
+            <?php endif; ?>
+            <?php if ($_SESSION["error_password_newAdmin"] === true): ?>
+                <p class="errorText">Inserire password di lunghezza tra 8 e 12 caratteri</p>
+            <?php else: ?>
+                <p class="errorText hidden">Inserire password di lunghezza tra 8 e 12 caratteri</p>
+            <?php endif; ?>
+        <?php endif; ?>
+        <?php
+            $_SESSION["error_createAdmin"] = false;
+            $_SESSION["error_username_newAdmin"] = false;
+            $_SESSION["error_password_newAdmin"] = false;
+        ?>
+        <form action="newAdmin.php" method="post" class="form" id="formLogin">
             <div class='field half required'>
                 <label class='label required' for='username'>Username</label>
                 <input class='text-input' id='username' name='username' type='text'>
@@ -121,7 +140,7 @@ $_SESSION["amministratori"] = $listaAdmin;
                 <input class='text-input' id='password' name='password' type='password'>
             </div>
             <div class="centerAlign">
-                <input class="btn btn-submit" id="btn_login" type="submit" value="accedi"/>
+                <input class="btn btn-submit" id="btn_login" type="submit" value="aggiungi"/>
             </div>
         </form>
     </div>
@@ -134,7 +153,7 @@ $_SESSION["amministratori"] = $listaAdmin;
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
-            <strong><a id="linkAdmin" href="login.php">Pannello di amministrazione</a></strong>
+            <strong><a id="linkAdmin" href="index.html">Torna al sito</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
             <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!" />

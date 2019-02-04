@@ -82,6 +82,17 @@ class Admin
         return $result;
     }
 
+    public static function searchAdmin ($name): bool {
+        $result = self::getAllAdmin();
+
+        foreach ($result as $admin) {
+            if ($admin['username'] === $name) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function deleteAdmin(): bool
     {
         $db = new Database();
