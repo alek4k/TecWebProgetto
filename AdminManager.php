@@ -1,6 +1,5 @@
 <?php
 
-require_once('Model/Database.php');
 require_once('Model/Admin.php');
 
 
@@ -42,12 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['token'])) {
 
     if ($success) {
         echo "Amministratore aggiunto con successo!";
+    } else {
+        echo "Si è verificato un errore: " . $error;
     }
-    else {
-        echo "Si è verificato un errore: ".$error;
-    }
-}
-else {
+} else {
     echo "quit";
 }
 

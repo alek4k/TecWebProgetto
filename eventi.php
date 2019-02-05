@@ -1,3 +1,58 @@
+<?php
+
+require_once('Model/Evento.php');
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+$_SESSION["eventi"] = Evento::getAllEventi();
+
+function getMese($month)
+{
+    $mese = $month;
+    switch ($month) {
+        case 'January':
+            $mese = 'Gennaio';
+            break;
+        case 'February':
+            $mese = 'Febbraio';
+            break;
+        case 'March':
+            $mese = 'Marzo';
+            break;
+        case 'April':
+            $mese = 'Aprile';
+            break;
+        case 'May':
+            $mese = 'Maggio';
+            break;
+        case 'June':
+            $mese = 'Giugno';
+            break;
+        case 'July':
+            $mese = 'Luglio';
+            break;
+        case 'August':
+            $mese = 'Agosto';
+            break;
+        case 'September':
+            $mese = 'Settembre';
+            break;
+        case 'October':
+            $mese = 'Ottobre';
+            break;
+        case 'November':
+            $mese = 'Novembre';
+            break;
+        case 'December':
+            $mese = 'Dicembre';
+            break;
+    }
+    return $mese;
+}
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
@@ -80,6 +135,21 @@
 </div>
 
 <div class="container before-footer">
+    <?php foreach ($_SESSION["eventi"] as $evento): ?>
+        <div class="flexible block-mobile evento">
+            <div class="vertical-align-block itemToAligneventi hide-on-print">
+                <span class="date"><?php echo substr($evento['data'], 8, 2) ?></span>
+                <span class="month"><?php echo getMese(date("F", strtotime($evento['data']))) ?></span>
+            </div>
+            <div class="vertical-align-block eventi-text">
+                <p class="titoloevento"><?php echo $evento['titolo'] ?></p>
+                <p><?php echo $evento['descrizione'] ?></p>
+            </div>
+            <div class="vertical-align-block itemToAligneventi hide-on-print">
+                <img src="<?php echo $evento['image'] ?>" alt="<?php echo $evento['titolo'] ?>"/>
+            </div>
+        </div>
+    <?php endforeach; ?>
     <div class="flexible block-mobile evento">
         <div class="vertical-align-block itemToAligneventi hide-on-print">
             <span class="date">29</span>

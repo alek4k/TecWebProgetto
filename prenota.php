@@ -71,7 +71,7 @@ if (session_status() == PHP_SESSION_NONE) {
             <li><a href="dovesiamo.html">Dove siamo</a></li>
             <li class="active"><a href="">Prenota</a></li>
             <li><a href="itinerari.html">Itinerari</a></li>
-            <li><a href="eventi.html">Eventi</a></li>
+            <li><a href="eventi.php">Eventi</a></li>
         </ul>
     </div>
 </div>
@@ -87,7 +87,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <div class="container before-footer">
     <div class="margin2">
-
         <?php if (!empty($_SESSION["prenotazioneCreata"])): ?>
             <p class="successText">Prenotazione effettuata. Verrai contattato per conferma il prima possibile!</p>
         <?php else: ?>
@@ -113,12 +112,12 @@ if (session_status() == PHP_SESSION_NONE) {
             <?php endif; ?>
         <?php endif; ?>
         <?php
-            $_SESSION["prenotazioneCreata"] = false;
-            $_SESSION["error_name"] = false;
-            $_SESSION["error_telefono"] = false;
-            $_SESSION["error_data"] = false;
-            $_SESSION["error_numPersone"] = false;
-            $_SESSION["error_email"] = false;
+        $_SESSION["prenotazioneCreata"] = false;
+        $_SESSION["error_name"] = false;
+        $_SESSION["error_telefono"] = false;
+        $_SESSION["error_data"] = false;
+        $_SESSION["error_numPersone"] = false;
+        $_SESSION["error_email"] = false;
         ?>
     </div>
 
@@ -129,7 +128,7 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
         <div class='field half'>
             <label class='label' for='email'>E-mail</label>
-            <input class='text-input' id='email' name='email'>
+            <input class='text-input' id='email' name='email' type="text">
         </div>
         <div class='field required half'>
             <label class='label' for='telefono'>Telefono</label>

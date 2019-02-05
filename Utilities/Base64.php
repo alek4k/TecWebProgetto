@@ -19,14 +19,14 @@ abstract class Base64
      * var_dump(Base64::encode($message));
      * </code>
      *
-     * @param string $message       the binary-unsafe message
-     * @param bool   $urlCompatible the generated result doesn't contains special characters
+     * @param string $message the binary-unsafe message
+     * @param bool $urlCompatible the generated result doesn't contains special characters
      *
      * @return string the binary-safe representation of the given message
      *
      * @throws \InvalidArgumentException the given message is not represented as a string or the URL safety is not boolean
      */
-    public static function encode($message, $urlCompatible = true) : string
+    public static function encode($message, $urlCompatible = true): string
     {
         //check for the message type
         if (!is_string($message)) {
@@ -63,7 +63,7 @@ abstract class Base64
      *
      * @throws \InvalidArgumentException the given message is not represented as a string
      */
-    public static function decode($message) : string
+    public static function decode($message): string
     {
         //check for the message type
         if (!is_string($message)) {

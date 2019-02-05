@@ -1,6 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $(document).scroll(function() {
+    $(document).scroll(function () {
         var y = $(document).scrollTop();
         if (window.innerWidth > 600) {
             if (y >= $("#topHeader").height()) {

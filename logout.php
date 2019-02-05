@@ -1,8 +1,5 @@
 <?php
 
-require_once('Model/Database.php');
-require_once('Model/Admin.php');
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }

@@ -1,6 +1,5 @@
 <?php
 
-require_once('Model/Database.php');
 require_once('Model/Admin.php');
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -37,9 +36,12 @@ $_SESSION["amministratori"] = $listaAdmin;
           content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri, bosco"/>
     <meta name="language" content="italian it"/>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="handheld, screen"/>
-    <link rel="stylesheet" type="text/css" href="css/desktop.css" media="handheld, screen and (max-width:1200px), only screen and (max-device-width:1200px)"/>
-    <link rel="stylesheet" type="text/css" href="css/tablet.css" media="handheld, screen and (max-width:992px),	only screen and (max-device-width:992px)"/>
-    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
+    <link rel="stylesheet" type="text/css" href="css/desktop.css"
+          media="handheld, screen and (max-width:1200px), only screen and (max-device-width:1200px)"/>
+    <link rel="stylesheet" type="text/css" href="css/tablet.css"
+          media="handheld, screen and (max-width:992px),	only screen and (max-device-width:992px)"/>
+    <link rel="stylesheet" type="text/css" href="css/mobile.css"
+          media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
     <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" media="handheld, screen"/>
     <link rel="stylesheet" type="text/css" href="css/solid.min.css" media="handheld, screen"/>
@@ -84,7 +86,7 @@ $_SESSION["amministratori"] = $listaAdmin;
     <div id="navbar-content" class="container">
         <ul id="menu">
             <li class="active"><a href="">Amministratori</a></li>
-            <li><a href="#">Eventi</a></li>
+            <li><a href="eventiManager.php">Eventi</a></li>
             <li><a href="prenotazioni.php">Prenotazioni</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
@@ -104,7 +106,8 @@ $_SESSION["amministratori"] = $listaAdmin;
     <div class="content-half margin2">
         <ul id="lista-admin">
             <?php foreach ($_SESSION["amministratori"] as $admin): ?>
-                <li><a href="delete.php?admin=<?php echo $admin['username']?>" class="btn btn-red"><i class="fa far fa-trash-alt"></i> elimina</a><?php echo ' '.$admin['username']; ?></li>
+                <li><a href="delete.php?admin=<?php echo $admin['username'] ?>" class="btn btn-red"><i
+                                class="fa far fa-trash-alt"></i> elimina</a><?php echo ' ' . $admin['username']; ?></li>
             <?php endforeach; ?>
         </ul>
     </div>
@@ -125,9 +128,9 @@ $_SESSION["amministratori"] = $listaAdmin;
             <?php endif; ?>
         <?php endif; ?>
         <?php
-            $_SESSION["error_createAdmin"] = false;
-            $_SESSION["error_username_newAdmin"] = false;
-            $_SESSION["error_password_newAdmin"] = false;
+        $_SESSION["error_createAdmin"] = false;
+        $_SESSION["error_username_newAdmin"] = false;
+        $_SESSION["error_password_newAdmin"] = false;
         ?>
         <form action="newAdmin.php" method="post" class="form" id="formLogin">
             <div class='field half required'>
@@ -148,14 +151,14 @@ $_SESSION["amministratori"] = $listaAdmin;
 <div id="footer" class="text-center">
     <div class="container">
         <a href="http://validator.w3.org/check?uri=referer">
-            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict" />
+            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict"/>
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
             <strong><a id="linkAdmin" href="index.html">Torna al sito</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
-            <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!" />
+            <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!"/>
         </a>
     </div>
 </div>

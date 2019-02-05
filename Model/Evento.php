@@ -2,12 +2,12 @@
 
 require_once('Database.php');
 
-class Prenotazione
+class Evento
 {
     private $data = [];
-    private $columns = array('Id', 'nome', 'email', 'telefono', 'persone', 'data', 'note');
+    private $columns = array('Id', 'titolo', 'descrizione', 'data', 'image');
 
-    public function createPrenotazione(& $error): bool
+    public function createEvento(& $error): bool
     {
         //nome della classe/tabella corrente
         $table = static::getCollectionName();
@@ -35,7 +35,7 @@ class Prenotazione
         }
     }
 
-    public static function getAllPrenotazioni(): array
+    public static function getAllEventi(): array
     {
         $db = new Database();
         return $db->selectAll(static::getCollectionName());
@@ -51,44 +51,24 @@ class Prenotazione
         return $this->data['Id'];
     }
 
-    public function setName($name)
+    public function setTitolo($title)
     {
-        $this->data['nome'] = $name;
+        $this->data['titolo'] = $title;
     }
 
-    public function getName()
+    public function getTitolo()
     {
-        return $this->data['nome'];
+        return $this->data['titolo'];
     }
 
-    public function setEmail($email)
+    public function setDescrizione($description)
     {
-        $this->data['email'] = $email;
+        $this->data['descrizione'] = $description;
     }
 
-    public function getEmail()
+    public function getDescrizione()
     {
-        return $this->data['email'];
-    }
-
-    public function setTelefono($phone)
-    {
-        $this->data['telefono'] = $phone;
-    }
-
-    public function getTelefono()
-    {
-        return $this->data['telefono'];
-    }
-
-    public function setPersone($persone)
-    {
-        $this->data['persone'] = $persone;
-    }
-
-    public function getPersone()
-    {
-        return $this->data['persone'];
+        return $this->data['descrizione'];
     }
 
     public function setData($data)
@@ -101,14 +81,14 @@ class Prenotazione
         return $this->data['data'];
     }
 
-    public function setNote($note)
+    public function setImage($img)
     {
-        $this->data['note'] = $note;
+        $this->data['image'] = $img;
     }
 
-    public function getNote()
+    public function getImage()
     {
-        return $this->data['note'];
+        return $this->data['image'];
     }
 
     protected static function getCollectionName()

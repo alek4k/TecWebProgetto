@@ -9,10 +9,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     nuovaPrenotazione();
-}
-else {
-    header('Location: /alovo/prenota.php');
-    die();
+} else {
+    backToPrenota();
 }
 
 function nuovaPrenotazione()
@@ -24,6 +22,7 @@ function nuovaPrenotazione()
     $_SESSION["error_data"] = false;
     $_SESSION["error_numPersone"] = false;
     $_SESSION["error_email"] = false;
+    $_SESSION["prenotazioneCreata"] = false;
 
     if (empty($_POST["name"])) {
         $_SESSION["error_name"] = true;
@@ -82,8 +81,7 @@ function nuovaPrenotazione()
 
     if ($prenotazione->createPrenotazione($error)) {
         $_SESSION["prenotazioneCreata"] = true;
-    }
-    else {
+    } else {
         $_SESSION["prenotazioneCreata"] = false;
     }
 
@@ -96,7 +94,8 @@ function backToPrenota()
     die();
 }
 
-function isDate($string) {
+function isDate($string)
+{
     $matches = array();
     $pattern = '/^([0-9]{1,2})\\/([0-9]{1,2})\\/([0-9]{4})$/';
     if (!preg_match($pattern, $string, $matches)) return false;
@@ -104,14 +103,16 @@ function isDate($string) {
     return true;
 }
 
-function isPhone($string) {
+function isPhone($string)
+{
     $matches = array();
     $pattern = '/^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm';
     if (!preg_match($pattern, $string, $matches)) return false;
     return true;
 }
 
-function pulisciInput($value) {
+function pulisciInput($value)
+{
     $value = trim($value);
     $value = htmlentities($value);
     $value = strip_tags($value);

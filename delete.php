@@ -1,12 +1,8 @@
 <?php
 
-require_once('Model/Database.php');
 require_once('Model/Admin.php');
 require_once('Model/Prenotazione.php');
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+require_once('Model/Evento.php');
 
 if (!isset($_SESSION["token"])) {
     header('Location: /alovo/login.php');
@@ -33,12 +29,28 @@ if (!empty($_GET["prenotazione"])) {
     backToPrenotazioni();
 }
 
-function backToAdmin() {
+if (!empty($_GET["evento"])) {
+    $toDelete = new Evento();
+    $toDelete->setId($_GET["evento"]);
+    $toDelete->delete();
+
+    backToEventiManager();
+}
+
+function backToAdmin()
+{
     header('Location: /alovo/admin.php');
     die();
 }
 
-function backToPrenotazioni() {
+function backToPrenotazioni()
+{
     header('Location: /alovo/prenotazioni.php');
+    die();
+}
+
+function backToEventiManager()
+{
+    header('Location: /alovo/eventiManager.php');
     die();
 }

@@ -22,9 +22,12 @@ if (isset($_SESSION["token"])) {
           content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri, bosco"/>
     <meta name="language" content="italian it"/>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="handheld, screen"/>
-    <link rel="stylesheet" type="text/css" href="css/desktop.css" media="handheld, screen and (max-width:1200px), only screen and (max-device-width:1200px)"/>
-    <link rel="stylesheet" type="text/css" href="css/tablet.css" media="handheld, screen and (max-width:992px),	only screen and (max-device-width:992px)"/>
-    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
+    <link rel="stylesheet" type="text/css" href="css/desktop.css"
+          media="handheld, screen and (max-width:1200px), only screen and (max-device-width:1200px)"/>
+    <link rel="stylesheet" type="text/css" href="css/tablet.css"
+          media="handheld, screen and (max-width:992px),	only screen and (max-device-width:992px)"/>
+    <link rel="stylesheet" type="text/css" href="css/mobile.css"
+          media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
     <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" media="handheld, screen"/>
     <link rel="stylesheet" type="text/css" href="css/solid.min.css" media="handheld, screen"/>
@@ -73,7 +76,7 @@ if (isset($_SESSION["token"])) {
             <li><a href="dovesiamo.html">Dove siamo</a></li>
             <li><a href="prenota.php">Prenota</a></li>
             <li><a href="itinerari.html">Itinerari</a></li>
-            <li><a href="eventi.html">Eventi</a></li>
+            <li><a href="eventi.php">Eventi</a></li>
         </ul>
     </div>
 </div>
@@ -96,7 +99,7 @@ if (isset($_SESSION["token"])) {
             <p id="loginError" class="errorText hidden">Credenziali non valide</p>
         <?php endif; ?>
         <?php
-            $_SESSION["error_login"] = false;
+        $_SESSION["error_login"] = false;
         ?>
     </div>
 
@@ -118,14 +121,14 @@ if (isset($_SESSION["token"])) {
 <div id="footer" class="text-center">
     <div class="container">
         <a href="http://validator.w3.org/check?uri=referer">
-            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict" />
+            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict"/>
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
             <strong class="active"><a id="linkAdmin">Pannello di amministrazione</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
-            <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!" />
+            <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!"/>
         </a>
     </div>
 </div>

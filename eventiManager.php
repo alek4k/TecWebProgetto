@@ -1,6 +1,6 @@
 <?php
 
-require_once('Model/Prenotazione.php');
+require_once('Model/Evento.php');
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -11,7 +11,7 @@ if (!isset($_SESSION["token"])) {
     die();
 }
 
-$_SESSION["prenotazioni"] = Prenotazione::getAllPrenotazioni();
+$_SESSION["eventi"] = Evento::getAllEventi();
 
 function getMese($month)
 {
@@ -62,10 +62,10 @@ function getMese($month)
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 
 <head>
-    <title>Prenotazioni - Rifugio Paolotti</title>
+    <title>Eventi - Rifugio Paolotti</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="description" content="Storico prenotazioni effettuate"/>
+    <meta name="description" content="Crea e gestisci gli eventi del rifugio"/>
     <meta name="author" content="Alberto Corrocher, Alessandro Lovo, Amedeo Meggiolaro, Victor Ducta"/>
     <meta name="keywords"
           content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri, bosco"/>
@@ -121,44 +121,91 @@ function getMese($month)
     <div id="navbar-content" class="container">
         <ul id="menu">
             <li><a href="admin.php">Amministratori</a></li>
-            <li><a href="eventiManager.php">Eventi</a></li>
-            <li class="active"><a>Prenotazioni</a></li>
+            <li class="active"><a>Eventi</a></li>
+            <li><a href="prenotazioni.php">Prenotazioni</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
 </div>
 
 <div class="container text-center first-margin-mobile">
-    <h1 class="titoli">Storico prenotazioni</h1>
+    <h1 class="titoli">Gestione eventi</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
-        <div class="hr-icon"><i class="fas fa-user-edit fa-3x"></i></div>
+        <div class="hr-icon"><i class="fas fa-glass-cheers fa-3x"></i></div>
         <div class="hr-line"></div>
     </div>
 </div>
 
 <div class="container before-footer">
-    <?php foreach ($_SESSION["prenotazioni"] as $prenotazione): ?>
+    <div class="margin2">
+        <?php if (!empty($_SESSION["eventoCreato"])): ?>
+            <p class="successText">Evento pubblicato!</p>
+        <?php else: ?>
+            <?php if ($_SESSION["error_titolo"] === true): ?>
+                <p id="titoloError" class="errorText">Lunghezza titolo non valida</p>
+            <?php else: ?>
+                <p id="titoloError" class="errorText hidden">Lunghezza titolo non valida</p>
+            <?php endif; ?>
+            <?php if ($_SESSION["error_descrizione"] === true): ?>
+                <p id="descriptionError" class="errorText">Lunghezza descrizione non valida</p>
+            <?php else: ?>
+                <p id="descriptionError" class="errorText hidden">Lunghezza descrizione non valida</p>
+            <?php endif; ?>
+            <?php if ($_SESSION["error_data"] === true): ?>
+                <p id="dataError" class="errorText">Inserire data nel formato gg/mm/aaaa</p>
+            <?php else: ?>
+                <p id="dataError" class="errorText hidden">Inserire data nel formato gg/mm/aaaa</p>
+            <?php endif; ?>
+            <?php if ($_SESSION["error_image"] === true): ?>
+                <p id="imageError" class="errorText">File immagine non valido</p>
+            <?php else: ?>
+                <p id="imageError" class="errorText hidden">File immagine non valido</p>
+            <?php endif; ?>
+        <?php endif; ?>
+        <?php
+        $_SESSION["eventoCreato"] = false;
+        $_SESSION["error_titolo"] = false;
+        $_SESSION["error_descrizione"] = false;
+        $_SESSION["error_data"] = false;
+        $_SESSION["error_image"] = false;
+        ?>
+    </div>
+
+    <form action='add-evento.php' method="post" class='form' id="formEvento">
+        <div class='field required'>
+            <label class='label required' for='titolo'>Titolo</label>
+            <input class='text-input' id='titolo' name='titolo' type='text'>
+        </div>
+        <div class='field half required'>
+            <label class='label' for='data'>Data (gg/mm/aaaa)</label>
+            <input class="select" id="data" name="data" type="text">
+        </div>
+        <div class='field half'>
+            <label class='label' for='image'>Immagine</label>
+            <input class='text-input' id='image' name='image' type="file">
+        </div>
+        <div class='field required'>
+            <label class='label' for='descrizione'>Descrizione</label>
+            <textarea class='textarea' cols='50' id='descrizione' name='descrizione' rows='4'></textarea>
+        </div>
+        <div class="centerAlign">
+            <input class="btn btn-submit" id="btn_creaEvento" type="submit" value="crea evento"/>
+        </div>
+    </form>
+
+    <?php foreach ($_SESSION["eventi"] as $evento): ?>
         <div class="flexible block-mobile evento">
             <div class="vertical-align-block itemToAligneventi alignPrenotazioni hide-on-print">
-                <span class="date"><?php echo substr($prenotazione['data'], 8, 2) ?></span>
-                <span class="month"><?php echo getMese(date("F", strtotime($prenotazione['data']))) ?></span>
+                <span class="date"><?php echo substr($evento['data'], 8, 2) ?></span>
+                <span class="month"><?php echo getMese(date("F", strtotime($evento['data']))) ?></span>
             </div>
             <div class="vertical-align-block eventi-text">
-                <ul class="elencoPuntato">
-                    <li><p><?php echo $prenotazione['nome'] ?></p></li>
-                    <?php if (!empty($prenotazione["email"])): ?>
-                        <li><p><?php echo $prenotazione['email'] ?></p></li>
-                    <?php endif; ?>
-                    <li><p><?php echo $prenotazione['telefono'] ?></p></li>
-                    <li><p>persone: <?php echo $prenotazione['persone'] ?></p></li>
-                    <?php if (!empty($prenotazione["note"])): ?>
-                        <li><p><?php echo $prenotazione['note'] ?></p></li>
-                    <?php endif; ?>
-                </ul>
+                <p class="titoloevento"><?php echo $evento['titolo'] ?></p>
+                <p><?php echo $evento['descrizione'] ?></p>
             </div>
             <div class="vertical-align-block itemToAligneventi alignPrenotazioni hide-on-print">
-                <a href="delete.php?prenotazione=<?php echo $prenotazione['Id'] ?>" class="btn btn-red"><i
+                <a href="delete.php?evento=<?php echo $evento['Id'] ?>" class="btn btn-red"><i
                             class="fa far fa-trash-alt"></i> elimina</a>
             </div>
         </div>

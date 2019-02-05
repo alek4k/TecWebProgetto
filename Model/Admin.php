@@ -1,6 +1,8 @@
 <?php
 
-require_once ('./Utilities/Base64.php');
+require_once('./Utilities/Base64.php');
+require_once('Database.php');
+
 use Utilities\Base64;
 
 class Admin
@@ -9,13 +11,12 @@ class Admin
     private $columns = array('Id', 'username', 'email', 'password', 'token', 'token_generation', 'token_expiration');
     const EXPIRING_TIME = 60 * 60 * 24;
 
-    public function register(& $error) : bool
+    public function register(& $error): bool
     {
         //cripto la password
         if (array_key_exists('password', $this->data)) {
             $this->setPassword($this->getHashedPassword());
-        }
-        else {
+        } else {
             $error = "Password mancante.";
             return false;
         }
@@ -27,8 +28,7 @@ class Admin
         $db = new Database();
         try {
             $db->insert($table, $this->data, $this->columns);
-        }
-        catch (Exception $ex) {
+        } catch (Exception $ex) {
             $error = $ex->getMessage();
             return false;
         }
@@ -36,7 +36,7 @@ class Admin
         return true;
     }
 
-    public function login(& $error) : bool
+    public function login(& $error): bool
     {
         $admin = new Admin();
         $admin->setUsername($this->getUsername());
@@ -46,8 +46,7 @@ class Admin
         $db = new Database();
         try {
             $results = $db->select($table, $admin->data, $this->columns);
-        }
-        catch (Exception $ex) {
+        } catch (Exception $ex) {
             $error = $ex->getMessage();
             return false;
         }
@@ -56,8 +55,7 @@ class Admin
             $this->setPassword($result['password']);
             if (static::checkHashedPassword($pwd, $this->getPassword())) {
                 return true;
-            }
-            else {
+            } else {
                 $error = "Password errata";
                 return false;
             }
@@ -79,7 +77,8 @@ class Admin
         return $result;
     }
 
-    public static function searchAdmin ($name): bool {
+    public static function searchAdmin($name): bool
+    {
         $result = self::getAllAdmin();
 
         foreach ($result as $admin) {
@@ -96,8 +95,7 @@ class Admin
         try {
             $db->delete(static::getCollectionName(), $this->data, $this->columns);
             return true;
-        }
-        catch (Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
     }
@@ -105,7 +103,7 @@ class Admin
     public function updateAfterLogin()
     {
         $db = new Database();
-        $db->update(static::getCollectionName(), array($this->getToken(),$this->getTokenGeneration(),$this->getTokenExpiration(),$this->getUsername()), "token = ?, token_generation = ?, token_expiration = ?", "username = ?");
+        $db->update(static::getCollectionName(), array($this->getToken(), $this->getTokenGeneration(), $this->getTokenExpiration(), $this->getUsername()), "token = ?, token_generation = ?, token_expiration = ?", "username = ?");
     }
 
     public function setUsername($name)
@@ -136,7 +134,8 @@ class Admin
         return $this->data['email'];
     }
 
-    public function setId($Id) {
+    public function setId($Id)
+    {
         $this->data['Id'] = $Id;
     }
 
@@ -214,7 +213,8 @@ class Admin
         return $this->data['token'];
     }
 
-    public function setToken($token) {
+    public function setToken($token)
+    {
         $this->data['token'] = $token;
     }
 
@@ -249,13 +249,13 @@ class Admin
             return null;
         }
 
-        $token = Base64::encode((string)uniqid(bin2hex(openssl_random_pseudo_bytes(12))).openssl_random_pseudo_bytes(32));
+        $token = Base64::encode((string)uniqid(bin2hex(openssl_random_pseudo_bytes(12))) . openssl_random_pseudo_bytes(32));
 
         $this->setToken($token);
         $this->setTokenGeneration(date("Y-m-d H:i:s"));
         $this->setTokenExpiration(date("Y-m-d H:i:s", strtotime("+30 minutes")));
 
-        return $this->getShortCode().$token;
+        return $this->getShortCode() . $token;
     }
 
     public function getShortCode()
@@ -268,7 +268,6 @@ class Admin
 
         return $this->data["shortcode"];
     }
-
 
 
     /*public static function encode($message, $urlCompatible = true) : string

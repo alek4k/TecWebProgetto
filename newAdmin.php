@@ -1,6 +1,5 @@
 <?php
 
-require_once('Model/Database.php');
 require_once('Model/Admin.php');
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -13,8 +12,7 @@ if (!isset($_SESSION["token"])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     aggiungiAdmin();
-}
-else {
+} else {
     backToLogin();
 }
 
@@ -55,8 +53,7 @@ function aggiungiAdmin()
 
     if (!Admin::searchAdmin($user->getUsername()) && $user->register($error)) {
         $_SESSION["error_createAdmin"] = false;
-    }
-    else {
+    } else {
         $_SESSION["error_createAdmin"] = true;
     }
 

@@ -1,6 +1,5 @@
 <?php
 
-require_once('Model/Database.php');
 require_once('Model/Admin.php');
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -9,8 +8,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     login();
-}
-else {
+} else {
     header('Location: /alovo/login.php');
     die();
 }
@@ -55,8 +53,7 @@ function login()
         $_SESSION["token"] = $token;
 
         header('Location: /alovo/admin.php');
-    }
-    else {
+    } else {
         $_SESSION["error_login"] = true;
         backToLogin();
     }

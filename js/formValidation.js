@@ -17,7 +17,7 @@ $(document).ready(function () {
         validateData();
     });
 
-    $('#formPrenotazione').submit(function( event ) {
+    $('#formPrenotazione').submit(function (event) {
         validateNome();
         validateEmail();
         validateTelefono();
@@ -32,10 +32,10 @@ $(document).ready(function () {
     });
 
     $("#password").focusout(function () {
-       validatePassword();
+        validatePassword();
     });
 
-    $('#formLogin').submit(function( event ) {
+    $('#formLogin').submit(function (event) {
         validateUsername();
         validatePassword();
         if ($('#btn_login').hasClass('btn-red'))
@@ -50,8 +50,7 @@ function validateNome() {
     if (nome.length < 3 || nome.length > 40) {
         msg.removeClass('hidden');
         disablePrenotaBtn();
-    }
-    else {
+    } else {
         msg.addClass('hidden');
         enablePrenotaBtn();
     }
@@ -63,8 +62,7 @@ function validateEmail() {
     if (emailCheck(email) || email.length === 0) {
         msg.addClass('hidden');
         enablePrenotaBtn();
-    }
-    else {
+    } else {
         msg.removeClass('hidden');
         disablePrenotaBtn();
     }
@@ -76,8 +74,7 @@ function validateTelefono() {
     if (telephoneCheck(telefono)) {
         msg.addClass('hidden');
         enablePrenotaBtn();
-    }
-    else {
+    } else {
         msg.removeClass('hidden');
         disablePrenotaBtn();
     }
@@ -89,8 +86,7 @@ function validateData() {
     if (dateCheck(data)) {
         msg.addClass('hidden');
         enablePrenotaBtn();
-    }
-    else {
+    } else {
         msg.removeClass('hidden');
         disablePrenotaBtn();
     }
@@ -102,8 +98,7 @@ function validatePassword() {
     if (password.length > 7 && password.length < 13) {
         msg.addClass('hidden');
         enableLoginBtn();
-    }
-    else {
+    } else {
         msg.removeClass('hidden');
         disableLoginBtn();
     }
@@ -115,8 +110,7 @@ function validateUsername() {
     if (username.length > 2 && username.length < 13) {
         msg.addClass('hidden');
         enableLoginBtn();
-    }
-    else {
+    } else {
         msg.removeClass('hidden');
         disableLoginBtn();
     }

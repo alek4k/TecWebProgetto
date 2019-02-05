@@ -90,8 +90,7 @@ class Database
 
             //query
             $query = "SELECT $whatSelect FROM $table WHERE $param_list";
-        }
-        else {
+        } else {
             $query = "SELECT $whatSelect FROM $table WHERE $whereClause";
             $param_values = $data;
         }
@@ -125,8 +124,7 @@ class Database
         try {
             $sth = $this->pdo->prepare($query);
             $sth->execute($data);
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             echo "Failed: " . $e->getMessage();
         }
 
@@ -150,8 +148,7 @@ class Database
             }, $column_list));
 
             $query = "DELETE FROM $table WHERE $param_list";
-        }
-        else {
+        } else {
             $query = "DELETE FROM $table WHERE $whereClause";
             $param_values = $data;
         }
