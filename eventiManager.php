@@ -172,7 +172,7 @@ function getMese($month)
         ?>
     </div>
 
-    <form action='add-evento.php' method="post" class='form' id="formEvento">
+    <form action='add-evento.php' method="post" class='form' id="formEvento" enctype="multipart/form-data">
         <div class='field required'>
             <label class='label required' for='titolo'>Titolo</label>
             <input class='text-input' id='titolo' name='titolo' type='text'>
@@ -190,7 +190,7 @@ function getMese($month)
             <textarea class='textarea' cols='50' id='descrizione' name='descrizione' rows='4'></textarea>
         </div>
         <div class="centerAlign">
-            <input class="btn btn-submit" id="btn_creaEvento" type="submit" value="crea evento"/>
+            <input class="btn btn-submit" id="btn_creaEvento" type="submit" name="submit" value="crea evento"/>
         </div>
     </form>
 

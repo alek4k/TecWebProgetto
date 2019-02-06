@@ -1,5 +1,6 @@
 <?php
 
+require_once ('Model/Database.php');
 require_once('Model/Admin.php');
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -122,9 +123,9 @@ $_SESSION["amministratori"] = $listaAdmin;
                 <p class="errorText hidden">Inserire username di lunghezza tra 3 e 40 caratteri</p>
             <?php endif; ?>
             <?php if ($_SESSION["error_password_newAdmin"] === true): ?>
-                <p class="errorText">Inserire password di lunghezza tra 8 e 12 caratteri</p>
+                <p class="errorText">Inserire password di lunghezza tra 5 e 12 caratteri</p>
             <?php else: ?>
-                <p class="errorText hidden">Inserire password di lunghezza tra 8 e 12 caratteri</p>
+                <p class="errorText hidden">Inserire password di lunghezza tra 5 e 12 caratteri</p>
             <?php endif; ?>
         <?php endif; ?>
         <?php

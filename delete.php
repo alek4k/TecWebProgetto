@@ -1,8 +1,13 @@
 <?php
 
+require_once('Model/Database.php');
 require_once('Model/Admin.php');
 require_once('Model/Prenotazione.php');
 require_once('Model/Evento.php');
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION["token"])) {
     header('Location: /alovo/login.php');

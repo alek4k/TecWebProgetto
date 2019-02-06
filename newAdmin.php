@@ -1,5 +1,6 @@
 <?php
 
+require_once ('Model/Database.php');
 require_once('Model/Admin.php');
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -40,7 +41,7 @@ function aggiungiAdmin()
         $_SESSION["error_username_newAdmin"] = true;
         $count += 1;
     }
-    if ((!is_string($password)) || (strlen($password) < 8) || (strlen($password) > 12)) {
+    if ((!is_string($password)) || (strlen($password) < 5) || (strlen($password) > 12)) {
         $_SESSION["error_password_newAdmin"] = true;
         $count += 1;
     }

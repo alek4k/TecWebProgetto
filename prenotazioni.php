@@ -1,5 +1,6 @@
 <?php
 
+require_once ('Model/Database.php');
 require_once('Model/Prenotazione.php');
 
 if (session_status() == PHP_SESSION_NONE) {
