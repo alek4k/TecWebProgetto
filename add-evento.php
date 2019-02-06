@@ -4,14 +4,12 @@ require_once('Model/Database.php');
 require_once('Model/Evento.php');
 require_once('Utilities/Functions.php');
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+Functions::checkLogin();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     nuovoEvento();
 } else {
-    backToEventiManager();
+    Functions::backToEventiManager();
 }
 
 function nuovoEvento()
@@ -45,7 +43,7 @@ function nuovoEvento()
         $_SESSION["error_titolo"] = true;
         $count += 1;
     }
-    if ((!is_string($data)) || (strlen($data) != 10) || (!isDate($data))) {
+    if ((!is_string($data)) || (strlen($data) != 10) || (!Functions::isDate($data))) {
         $_SESSION["error_data"] = true;
         $count += 1;
     }
@@ -54,6 +52,7 @@ function nuovoEvento()
         $count += 1;
     }
 
+    //CONTROLLI E UPLOAD IMMAGINE
     $target_dir = 'uploads/';
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
@@ -96,13 +95,14 @@ function nuovoEvento()
             echo "Sorry, there was an error uploading your file.";
         }
     }
+    //FINE UPLOAD IMMAGINE
 
-    if ($count > 0) backToEventiManager();
+    if ($count > 0) Functions::backToEventiManager();
 
     $evento = new Evento();
-    $evento->setTitolo(pulisciInput($titolo));
-    $evento->setDescrizione(pulisciInput($descrizione));
-    $evento->setData(pulisciInput($data));
+    $evento->setTitolo(Functions::pulisciInput($titolo));
+    $evento->setDescrizione(Functions::pulisciInput($descrizione));
+    $evento->setData(Functions::pulisciInput($data));
     $evento->setImage($target_file);
 
     if ($evento->createEvento($error)) {
@@ -111,28 +111,5 @@ function nuovoEvento()
         $_SESSION["eventoCreato"] = false;
     }
 
-    backToEventiManager();
-}
-
-function backToEventiManager()
-{
-    header('Location: '.Functions::$mainDirectory.'eventiManager.php');
-    die();
-}
-
-function isDate($string)
-{
-    $matches = array();
-    $pattern = '/^([0-9]{1,2})\\/([0-9]{1,2})\\/([0-9]{4})$/';
-    if (!preg_match($pattern, $string, $matches)) return false;
-    if (!checkdate($matches[2], $matches[1], $matches[3])) return false;
-    return true;
-}
-
-function pulisciInput($value)
-{
-    $value = trim($value);
-    $value = htmlentities($value);
-    $value = strip_tags($value);
-    return $value;
+    Functions::backToEventiManager();
 }

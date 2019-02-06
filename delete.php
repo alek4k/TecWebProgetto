@@ -6,25 +6,18 @@ require_once('Model/Prenotazione.php');
 require_once('Model/Evento.php');
 require_once('Utilities/Functions.php');
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION["token"])) {
-    header('Location: '.Functions::$mainDirectory.'login.php');
-    die();
-}
+Functions::checkLogin();
 
 if (!empty($_GET["admin"])) {
     if ($_GET["admin"] === $_SESSION["username"]) {
-        backToAdmin();
+        Functions::backToAdmin();
     }
 
     $toDelete = new Admin();
     $toDelete->setUsername($_GET["admin"]);
     $toDelete->delete();
 
-    backToAdmin();
+    Functions::backToAdmin();
 }
 
 if (!empty($_GET["prenotazione"])) {
@@ -32,7 +25,7 @@ if (!empty($_GET["prenotazione"])) {
     $toDelete->setId($_GET["prenotazione"]);
     $toDelete->delete();
 
-    backToPrenotazioni();
+    Functions::backToPrenotazioni();
 }
 
 if (!empty($_GET["evento"])) {
@@ -40,23 +33,5 @@ if (!empty($_GET["evento"])) {
     $toDelete->setId($_GET["evento"]);
     $toDelete->delete();
 
-    backToEventiManager();
-}
-
-function backToAdmin()
-{
-    header('Location: '.Functions::$mainDirectory.'admin.php');
-    die();
-}
-
-function backToPrenotazioni()
-{
-    header('Location: '.Functions::$mainDirectory.'prenotazioni.php');
-    die();
-}
-
-function backToEventiManager()
-{
-    header('Location: '.Functions::$mainDirectory.'eventiManager.php');
-    die();
+    Functions::backToEventiManager();
 }

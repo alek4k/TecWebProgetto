@@ -4,14 +4,10 @@ require_once('Model/Database.php');
 require_once('Model/Prenotazione.php');
 require_once('Utilities/Functions.php');
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     nuovaPrenotazione();
 } else {
-    backToPrenota();
+    Functions::backToPrenota();
 }
 
 function nuovaPrenotazione()
@@ -53,7 +49,7 @@ function nuovaPrenotazione()
         $_SESSION["error_name"] = true;
         $count += 1;
     }
-    if ((!is_string($data)) || (strlen($data) != 10) || (!isDate($data))) {
+    if ((!is_string($data)) || (strlen($data) != 10) || (!Functions::isDate($data))) {
         $_SESSION["error_data"] = true;
         $count += 1;
     }
@@ -70,15 +66,15 @@ function nuovaPrenotazione()
         $count += 1;
     }
 
-    if ($count > 0) backToPrenota();
+    if ($count > 0) Functions::backToPrenota();
 
     $prenotazione = new Prenotazione();
-    $prenotazione->setName(pulisciInput($name));
-    $prenotazione->setEmail(pulisciInput($email));
-    $prenotazione->setTelefono(pulisciInput($telefono));
-    $prenotazione->setPersone(pulisciInput($numPersone));
-    $prenotazione->setData(pulisciInput($data));
-    $prenotazione->setNote(pulisciInput($note));
+    $prenotazione->setName(Functions::pulisciInput($name));
+    $prenotazione->setEmail(Functions::pulisciInput($email));
+    $prenotazione->setTelefono(Functions::pulisciInput($telefono));
+    $prenotazione->setPersone(Functions::pulisciInput($numPersone));
+    $prenotazione->setData(Functions::pulisciInput($data));
+    $prenotazione->setNote(Functions::pulisciInput($note));
 
     if ($prenotazione->createPrenotazione($error)) {
         $_SESSION["prenotazioneCreata"] = true;
@@ -86,42 +82,5 @@ function nuovaPrenotazione()
         $_SESSION["prenotazioneCreata"] = false;
     }
 
-    backToPrenota();
-}
-
-function backToPrenota()
-{
-    header('Location: '.Functions::$mainDirectory.'prenota.php');
-    die();
-}
-
-function isDate($string)
-{
-    $matches = array();
-    $pattern = '/^([0-9]{1,2})\\/([0-9]{1,2})\\/([0-9]{4})$/';
-    if (!preg_match($pattern, $string, $matches)) return false;
-    if (!checkdate($matches[2], $matches[1], $matches[3])) return false;
-
-    //controllo che la data non sia passata
-    $yyyymmdd = strtotime(date("Y-d-m", strtotime($string)));
-    $now = strtotime(date('Y-m-d'));
-    if ($yyyymmdd < $now) return false;
-
-    return true;
-}
-
-function isPhone($string)
-{
-    $matches = array();
-    $pattern = '/^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm';
-    if (!preg_match($pattern, $string, $matches)) return false;
-    return true;
-}
-
-function pulisciInput($value)
-{
-    $value = trim($value);
-    $value = htmlentities($value);
-    $value = strip_tags($value);
-    return $value;
+    Functions::backToPrenota();
 }

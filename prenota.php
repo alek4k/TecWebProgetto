@@ -87,28 +87,27 @@ if (session_status() == PHP_SESSION_NONE) {
 <div class="container before-footer">
     <div class="margin2">
         <?php if (!empty($_SESSION["prenotazioneCreata"])): ?>
-            <p class="successText">Prenotazione effettuata. Verrai contattato per conferma il prima possibile!</p>
+            <p id="createSuccess" class="successText">Prenotazione effettuata. Verrai contattato per conferma il prima possibile!</p>
+        <?php endif; ?>
+        <?php if ($_SESSION["error_name"] === true): ?>
+            <p id="nomeError" class="errorText">Inserire almeno 3 e massimo 40 caratteri per il nome</p>
         <?php else: ?>
-            <?php if ($_SESSION["error_name"] === true): ?>
-                <p id="nomeError" class="errorText">Inserire almeno 3 e massimo 40 caratteri per il nome</p>
-            <?php else: ?>
-                <p id="nomeError" class="errorText hidden">Inserire almeno 3 e massimo 40 caratteri per il nome</p>
-            <?php endif; ?>
-            <?php if ($_SESSION["error_email"] === true): ?>
-                <p id="emailError" class="errorText">Indirizzo email non valido</p>
-            <?php else: ?>
-                <p id="emailError" class="errorText hidden">Indirizzo email non valido</p>
-            <?php endif; ?>
-            <?php if ($_SESSION["error_telefono"] === true): ?>
-                <p id="telefonoError" class="errorText">Numero di telefono non valido</p>
-            <?php else: ?>
-                <p id="telefonoError" class="errorText hidden">Numero di telefono non valido</p>
-            <?php endif; ?>
-            <?php if ($_SESSION["error_data"] === true): ?>
-                <p id="dataError" class="errorText">Inserire data nel formato gg/mm/aaaa</p>
-            <?php else: ?>
-                <p id="dataError" class="errorText hidden">Inserire data nel formato gg/mm/aaaa</p>
-            <?php endif; ?>
+            <p id="nomeError" class="errorText hidden">Inserire almeno 3 e massimo 40 caratteri per il nome</p>
+        <?php endif; ?>
+        <?php if ($_SESSION["error_email"] === true): ?>
+            <p id="emailError" class="errorText">Indirizzo email non valido</p>
+        <?php else: ?>
+            <p id="emailError" class="errorText hidden">Indirizzo email non valido</p>
+        <?php endif; ?>
+        <?php if ($_SESSION["error_telefono"] === true): ?>
+            <p id="telefonoError" class="errorText">Numero di telefono non valido</p>
+        <?php else: ?>
+            <p id="telefonoError" class="errorText hidden">Numero di telefono non valido</p>
+        <?php endif; ?>
+        <?php if ($_SESSION["error_data"] === true): ?>
+            <p id="dataError" class="errorText">Inserire data nel formato gg/mm/aaaa</p>
+        <?php else: ?>
+            <p id="dataError" class="errorText hidden">Inserire data nel formato gg/mm/aaaa</p>
         <?php endif; ?>
         <?php
         $_SESSION["prenotazioneCreata"] = false;

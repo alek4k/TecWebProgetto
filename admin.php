@@ -4,14 +4,7 @@ require_once('Model/Database.php');
 require_once('Model/Admin.php');
 require_once('Utilities/Functions.php');
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION["token"])) {
-    header('Location: '.Functions::$mainDirectory.'login.php');
-    die();
-}
+Functions::checkLogin();
 
 $listaAdmin = Admin::getAllAdmin();
 $i = 0;
@@ -134,7 +127,7 @@ $_SESSION["amministratori"] = $listaAdmin;
         $_SESSION["error_username_newAdmin"] = false;
         $_SESSION["error_password_newAdmin"] = false;
         ?>
-        <form action="newAdmin.php" method="post" class="form" id="formLogin">
+        <form action="add-admin.php" method="post" class="form" id="formLogin">
             <div class='field half required'>
                 <label class='label required' for='username'>Username</label>
                 <input class='text-input' id='username' name='username' type='text'>

@@ -22,6 +22,7 @@ $(document).ready(function () {
         validateEmail();
         validateTelefono();
         validateData();
+        $('#createSuccess').addClass('hidden');
         if ($('#btn_prenota').hasClass('btn-red'))
             event.preventDefault();
     });
@@ -45,6 +46,7 @@ $(document).ready(function () {
 });
 
 function validateNome() {
+    $('#createSuccess').addClass('hidden');
     var msg = $('#nomeError');
     var nome = $('#name').val();
     if (nome.length < 3 || nome.length > 40) {
@@ -57,6 +59,7 @@ function validateNome() {
 }
 
 function validateEmail() {
+    $('#createSuccess').addClass('hidden');
     var msg = $('#emailError');
     var email = $('#email').val();
     if (emailCheck(email) || email.length === 0) {
@@ -69,6 +72,7 @@ function validateEmail() {
 }
 
 function validateTelefono() {
+    $('#createSuccess').addClass('hidden');
     var msg = $('#telefonoError');
     var telefono = $('#telefono').val();
     if (telephoneCheck(telefono)) {
@@ -81,6 +85,7 @@ function validateTelefono() {
 }
 
 function validateData() {
+    $('#createSuccess').addClass('hidden');
     var msg = $('#dataError');
     var data = $('#data').val();
     if (dateCheck(data)) {

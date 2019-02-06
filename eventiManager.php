@@ -3,60 +3,9 @@
 require_once('Model/Evento.php');
 require_once('Utilities/Functions.php');
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION["token"])) {
-    header('Location: '.Functions::$mainDirectory.'login.php');
-    die();
-}
+Functions::checkLogin();
 
 $_SESSION["eventi"] = Evento::getAllEventi();
-
-function getMese($month)
-{
-    $mese = $month;
-    switch ($month) {
-        case 'January':
-            $mese = 'Gennaio';
-            break;
-        case 'February':
-            $mese = 'Febbraio';
-            break;
-        case 'March':
-            $mese = 'Marzo';
-            break;
-        case 'April':
-            $mese = 'Aprile';
-            break;
-        case 'May':
-            $mese = 'Maggio';
-            break;
-        case 'June':
-            $mese = 'Giugno';
-            break;
-        case 'July':
-            $mese = 'Luglio';
-            break;
-        case 'August':
-            $mese = 'Agosto';
-            break;
-        case 'September':
-            $mese = 'Settembre';
-            break;
-        case 'October':
-            $mese = 'Ottobre';
-            break;
-        case 'November':
-            $mese = 'Novembre';
-            break;
-        case 'December':
-            $mese = 'Dicembre';
-            break;
-    }
-    return $mese;
-}
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -199,7 +148,7 @@ function getMese($month)
         <div class="flexible block-mobile evento">
             <div class="vertical-align-block itemToAligneventi alignPrenotazioni hide-on-print">
                 <span class="date"><?php echo substr($evento['data'], 8, 2) ?></span>
-                <span class="month"><?php echo getMese(date("F", strtotime($evento['data']))) ?></span>
+                <span class="month"><?php echo Functions::getMese(date("F", strtotime($evento['data']))) ?></span>
             </div>
             <div class="vertical-align-block eventi-text">
                 <p class="titoloevento"><?php echo $evento['titolo'] ?></p>

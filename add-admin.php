@@ -4,18 +4,12 @@ require_once ('Model/Database.php');
 require_once('Model/Admin.php');
 require_once('Utilities/Functions.php');
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION["token"])) {
-    backToLogin();
-}
+Functions::checkLogin();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     aggiungiAdmin();
 } else {
-    backToLogin();
+    Functions::backToLogin();
 }
 
 function aggiungiAdmin()
@@ -47,7 +41,7 @@ function aggiungiAdmin()
         $count += 1;
     }
 
-    if ($count > 0) backToAdmin();
+    if ($count > 0) Functions::backToAdmin();
 
     $user = new Admin();
     $user->setUsername($username);
@@ -59,17 +53,5 @@ function aggiungiAdmin()
         $_SESSION["error_createAdmin"] = true;
     }
 
-    backToAdmin();
-}
-
-function backToLogin()
-{
-    header('Location: '.Functions::$mainDirectory.'login.php');
-    die();
-}
-
-function backToAdmin()
-{
-    header('Location: '.Functions::$mainDirectory.'admin.php');
-    die();
+    Functions::backToAdmin();
 }
