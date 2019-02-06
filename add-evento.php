@@ -2,6 +2,7 @@
 
 require_once('Model/Database.php');
 require_once('Model/Evento.php');
+require_once('Utilities/Functions.php');
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -115,7 +116,7 @@ function nuovoEvento()
 
 function backToEventiManager()
 {
-    header('Location: /alovo/eventiManager.php');
+    header('Location: '.Functions::$mainDirectory.'eventiManager.php');
     die();
 }
 

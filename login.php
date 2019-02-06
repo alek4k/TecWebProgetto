@@ -1,10 +1,13 @@
 <?php
+
+require_once('Utilities/Functions.php');
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 if (isset($_SESSION["token"])) {
-    header('Location: /alovo/admin.php');
+    header('Location: '.Functions::$mainDirectory.'login.php');
     die();
 }
 

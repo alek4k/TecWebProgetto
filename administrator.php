@@ -2,6 +2,7 @@
 
 require_once ('Model/Database.php');
 require_once('Model/Admin.php');
+require_once('Utilities/Functions.php');
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -10,8 +11,7 @@ if (session_status() == PHP_SESSION_NONE) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     login();
 } else {
-    header('Location: /alovo/login.php');
-    die();
+    backToLogin();
 }
 
 function login()
@@ -53,7 +53,7 @@ function login()
         $_SESSION["username"] = $user->getUsername();
         $_SESSION["token"] = $token;
 
-        header('Location: /alovo/admin.php');
+        header('Location: '.Functions::$mainDirectory.'admin.php');
     } else {
         $_SESSION["error_login"] = true;
         backToLogin();
@@ -64,6 +64,5 @@ function login()
 
 function backToLogin()
 {
-    header('Location: /alovo/login.php');
-    die();
+    header('Location: '.Functions::$mainDirectory.'login.php');
 }

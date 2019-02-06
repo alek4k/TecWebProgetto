@@ -2,6 +2,7 @@
 
 require_once('Model/Database.php');
 require_once('Model/Prenotazione.php');
+require_once('Utilities/Functions.php');
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -90,7 +91,7 @@ function nuovaPrenotazione()
 
 function backToPrenota()
 {
-    header('Location: /alovo/prenota.php');
+    header('Location: '.Functions::$mainDirectory.'prenota.php');
     die();
 }
 
@@ -100,6 +101,12 @@ function isDate($string)
     $pattern = '/^([0-9]{1,2})\\/([0-9]{1,2})\\/([0-9]{4})$/';
     if (!preg_match($pattern, $string, $matches)) return false;
     if (!checkdate($matches[2], $matches[1], $matches[3])) return false;
+
+    //controllo che la data non sia passata
+    $yyyymmdd = strtotime(date("Y-d-m", strtotime($string)));
+    $now = strtotime(date('Y-m-d'));
+    if ($yyyymmdd < $now) return false;
+
     return true;
 }
 

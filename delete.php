@@ -4,13 +4,14 @@ require_once('Model/Database.php');
 require_once('Model/Admin.php');
 require_once('Model/Prenotazione.php');
 require_once('Model/Evento.php');
+require_once('Utilities/Functions.php');
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 if (!isset($_SESSION["token"])) {
-    header('Location: /alovo/login.php');
+    header('Location: '.Functions::$mainDirectory.'login.php');
     die();
 }
 
@@ -44,18 +45,18 @@ if (!empty($_GET["evento"])) {
 
 function backToAdmin()
 {
-    header('Location: /alovo/admin.php');
+    header('Location: '.Functions::$mainDirectory.'admin.php');
     die();
 }
 
 function backToPrenotazioni()
 {
-    header('Location: /alovo/prenotazioni.php');
+    header('Location: '.Functions::$mainDirectory.'prenotazioni.php');
     die();
 }
 
 function backToEventiManager()
 {
-    header('Location: /alovo/eventiManager.php');
+    header('Location: '.Functions::$mainDirectory.'eventiManager.php');
     die();
 }

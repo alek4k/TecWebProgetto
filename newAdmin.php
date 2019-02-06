@@ -2,6 +2,7 @@
 
 require_once ('Model/Database.php');
 require_once('Model/Admin.php');
+require_once('Utilities/Functions.php');
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -63,12 +64,12 @@ function aggiungiAdmin()
 
 function backToLogin()
 {
-    header('Location: /alovo/login.php');
+    header('Location: '.Functions::$mainDirectory.'login.php');
     die();
 }
 
 function backToAdmin()
 {
-    header('Location: /alovo/admin.php');
+    header('Location: '.Functions::$mainDirectory.'admin.php');
     die();
 }

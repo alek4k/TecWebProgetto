@@ -1,14 +1,15 @@
 <?php
 
-require_once ('Model/Database.php');
+require_once('Model/Database.php');
 require_once('Model/Admin.php');
+require_once('Utilities/Functions.php');
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 if (!isset($_SESSION["token"])) {
-    header('Location: /alovo/login.php');
+    header('Location: '.Functions::$mainDirectory.'login.php');
     die();
 }
 

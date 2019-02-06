@@ -26,7 +26,6 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css" media="handheld, screen"/>
     <link rel="stylesheet" type="text/css" href="css/solid.min.css" media="handheld, screen"/>
     <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
-    <script type="text/javascript" src="js/headerScroll.js"></script>
     <script type="text/javascript" src="js/headerScrollMobile.js"></script>
     <script type="text/javascript" src="js/hamburger.js"></script>
     <script type="text/javascript" src="js/formValidation.js"></script>
