@@ -52,52 +52,36 @@ function nuovoEvento()
         $count += 1;
     }
 
-    $uploadOk = 1;
+    //CONTROLLI E UPLOAD IMMAGINE
+    $target_file = "";
     if ($_FILES['image']['size'] > 0 && $_FILES['image']['error'] == 0)
     {
-        //CONTROLLI E UPLOAD IMMAGINE
-        $target_dir = 'uploads/';
+        //l'immagine è stata inserita nel form
+        $uploadOk = 1;
+        $target_dir = Functions::$uploadDir;
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        //Check if image file is a actual image or fake image
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["image"]["tmp_name"]);
-            if ($check !== false && $_FILES['image']['error'] == 0) {
-                $uploadOk = 1;
-            } else {
-                $uploadOk = 0;
-            }
-        }
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            $_SESSION["error_image"] = "L'immagine esiste già";
-            $uploadOk = 0;
-            $count += 1;
-        }
-        // Check file size (max 2MB)
+
+        // Controllo dimensione file (max 2MB)
         if ($_FILES["fileToUpload"]["size"] > 2000000) {
             $_SESSION["error_image"] = "File immagine troppo grande";
             $uploadOk = 0;
             $count += 1;
         }
-        // Allow certain file formats
+        // Controllo sulle estensioni del file
         if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif") {
             $_SESSION["error_image"] = "Formato immagine non consentito";
             $uploadOk = 0;
             $count += 1;
         }
-        // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
 
-            //echo "Sorry, your file was not uploaded.";
-            // if everything is ok, try to upload file
-        } else {
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                //echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
-            } else {
+        if ($uploadOk == 1 && !file_exists($target_file)) {
+            try {
+                move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+            }
+            catch (Exception $exception) {
                 $_SESSION["error_image"] = "Errore durante il carimento dell'immagine";
-                $uploadOk = 0;
                 $count += 1;
             }
         }
@@ -110,10 +94,7 @@ function nuovoEvento()
     $evento->setTitolo(Functions::pulisciInput($titolo));
     $evento->setDescrizione(Functions::pulisciInput($descrizione));
     $evento->setData(Functions::pulisciInput($data));
-    if ($uploadOk !== 0)
-        $evento->setImage($target_file);
-    else
-        $evento->setImage("");
+    $evento->setImage($target_file);
 
     if ($evento->createEvento($error)) {
         $_SESSION["eventoCreato"] = true;

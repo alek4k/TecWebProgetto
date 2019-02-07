@@ -9,6 +9,9 @@ class Functions
     //----> website root folder <----
     public static $mainDirectory = "/alovo/";
 
+    //----> website upload images folder <----
+    public static $uploadDir = "uploads/";
+
     public static function checkLogin()
     {
         if (!isset($_SESSION["token"])) {
