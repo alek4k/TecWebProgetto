@@ -100,7 +100,7 @@ function validateData() {
 function validatePassword() {
     var msg = $('#loginError');
     var password = $('#password').val();
-    if (password.length > 7 && password.length < 13) {
+    if (password.length > 4 && password.length < 13) {
         msg.addClass('hidden');
         enableLoginBtn();
     } else {
