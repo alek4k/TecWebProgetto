@@ -1,6 +1,6 @@
 <?php
 
-require_once ('Model/Database.php');
+require_once('Model/Database.php');
 require_once('Model/Admin.php');
 require_once('Utilities/Functions.php');
 
@@ -32,7 +32,7 @@ function login()
         $_SESSION["error_login"] = true;
         $count += 1;
     }
-    if ((!is_string($password)) || (strlen($password) < 8) || (strlen($password) > 12)) {
+    if ((!is_string($password)) || (strlen($password) < 5) || (strlen($password) > 12)) {
         $_SESSION["error_login"] = true;
         $count += 1;
     }
