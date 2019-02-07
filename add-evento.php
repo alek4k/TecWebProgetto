@@ -93,7 +93,7 @@ function nuovoEvento()
     $evento = new Evento();
     $evento->setTitolo(Functions::pulisciInput($titolo));
     $evento->setDescrizione(Functions::pulisciInput($descrizione));
-    $evento->setData(Functions::pulisciInput($data));
+    $evento->setData($data);
     $evento->setImage($target_file);
 
     if ($evento->createEvento($error)) {

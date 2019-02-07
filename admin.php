@@ -112,9 +112,9 @@ $_SESSION["amministratori"] = $listaAdmin;
             <p class="errorText">Username non disponibile!</p>
         <?php else: ?>
             <?php if ($_SESSION["error_username_newAdmin"] === true): ?>
-                <p class="errorText">Inserire username di lunghezza tra 3 e 40 caratteri</p>
+                <p class="errorText">Inserire username di lunghezza tra 3 e 12 caratteri</p>
             <?php else: ?>
-                <p class="errorText hidden">Inserire username di lunghezza tra 3 e 40 caratteri</p>
+                <p class="errorText hidden">Inserire username di lunghezza tra 3 e 12 caratteri</p>
             <?php endif; ?>
             <?php if ($_SESSION["error_password_newAdmin"] === true): ?>
                 <p class="errorText">Inserire password di lunghezza tra 5 e 12 caratteri</p>

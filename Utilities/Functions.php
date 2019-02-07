@@ -65,9 +65,9 @@ class Functions
         if (!checkdate($matches[2], $matches[1], $matches[3])) return false;
 
         //controllo che la data non sia passata
-        $yyyymmdd = strtotime(date("Y-d-m", strtotime($string)));
-        $now = strtotime(date('Y-m-d'));
-        if ($yyyymmdd < $now) return false;
+        $data = DateTime::createFromFormat('d/m/Y', $string);
+        $now = new DateTime();
+        if ($data <= $now) return false;
 
         return true;
     }

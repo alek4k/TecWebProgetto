@@ -1,6 +1,6 @@
 <?php
 
-require_once ('Model/Database.php');
+require_once('Model/Database.php');
 require_once('Model/Admin.php');
 require_once('Utilities/Functions.php');
 

@@ -73,7 +73,7 @@ class Evento
 
     public function setData($data)
     {
-        $this->data['data'] = date("Y-d-m", strtotime($data));
+        $this->data['data'] = DateTime::createFromFormat('d/m/Y', $data)->format('Y-m-d');
     }
 
     public function getData()

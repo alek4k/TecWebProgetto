@@ -268,23 +268,4 @@ class Admin
 
         return $this->data["shortcode"];
     }
-
-
-    /*public static function encode($message, $urlCompatible = true) : string
-    {
-        //check for the message type
-        if (!is_string($message)) {
-            throw new \InvalidArgumentException('the binary unsafe content must be given as a string');
-        }
-        //check for url safety param
-        if (!is_bool($urlCompatible)) {
-            throw new \InvalidArgumentException('the binary unsafe content must be given as a string');
-        }
-        //get the base64 url unsafe
-        $encoded = base64_encode($message);
-        //return the url safe version if requested
-        return ($urlCompatible) ? rtrim(strtr($encoded, '+/=', '-_~'), '~') : $encoded;
-    }*/
-
-
 }
