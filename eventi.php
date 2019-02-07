@@ -99,7 +99,9 @@ $_SESSION["eventi"] = Evento::getAllEventi();
                 <p><?php echo $evento['descrizione'] ?></p>
             </div>
             <div class="vertical-align-block itemToAligneventi hide-on-print">
-                <img src="<?php echo $evento['image'] ?>" alt="<?php echo $evento['titolo'] ?>"/>
+                <?php if(!empty($evento['image'])):?>
+                    <img src="<?php echo $evento['image'] ?>" alt="<?php echo $evento['titolo'] ?>"/>
+                <?php endif; ?>
             </div>
         </div>
     <?php endforeach; ?>
