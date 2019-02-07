@@ -107,8 +107,8 @@ $_SESSION["eventi"] = Evento::getAllEventi();
             <?php else: ?>
                 <p id="dataError" class="errorText hidden">Inserire data nel formato gg/mm/aaaa</p>
             <?php endif; ?>
-            <?php if ($_SESSION["error_image"] === true): ?>
-                <p id="imageError" class="errorText">File immagine non valido</p>
+            <?php if (!empty($_SESSION["error_image"])): ?>
+                <p id="imageError" class="errorText"><?php echo $_SESSION["error_image"] ?></p>
             <?php else: ?>
                 <p id="imageError" class="errorText hidden">File immagine non valido</p>
             <?php endif; ?>
