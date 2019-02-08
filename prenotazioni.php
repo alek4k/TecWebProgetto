@@ -1,10 +1,12 @@
 <?php
 
-require_once ('Model/Database.php');
+require_once('Model/Database.php');
+require_once('Model/Admin.php');
 require_once('Model/Prenotazione.php');
 require_once('Utilities/Functions.php');
 
 Functions::checkLogin();
+Functions::checkTokenExpiration();
 
 $_SESSION["prenotazioni"] = Prenotazione::getAllPrenotazioni();
 

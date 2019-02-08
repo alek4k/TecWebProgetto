@@ -3,8 +3,7 @@
 require_once('Utilities/Functions.php');
 
 if (isset($_SESSION["token"])) {
-    header('Location: '.Functions::$mainDirectory.'admin.php');
-    die();
+    Functions::backToAdmin();
 }
 
 ?>
@@ -92,6 +91,9 @@ if (isset($_SESSION["token"])) {
 
 <div class="container before-footer">
     <div class="margin2">
+        <?php if (!empty($_SESSION["session_expired"])): ?>
+            <p class="errorText">Sessione scaduta, effettuare il login</p>
+        <?php endif; ?>
         <?php if (!empty($_SESSION["error_login"])): ?>
             <p id="loginError" class="errorText">Credenziali non valide</p>
         <?php else: ?>
@@ -99,6 +101,7 @@ if (isset($_SESSION["token"])) {
         <?php endif; ?>
         <?php
         $_SESSION["error_login"] = false;
+        $_SESSION["session_expired"] = false;
         ?>
     </div>
 

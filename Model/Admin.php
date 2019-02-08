@@ -1,5 +1,9 @@
 <?php
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once('./Utilities/Base64.php');
 require_once('Database.php');
 
@@ -8,7 +12,7 @@ use Utilities\Base64;
 class Admin
 {
     private $data = [];
-    private $columns = array('Id', 'username', 'email', 'password', 'token', 'token_generation', 'token_expiration');
+    private $columns = array('Id', 'username', 'password', 'token', 'token_generation', 'token_expiration');
     const EXPIRING_TIME = 60 * 60 * 24;
 
     public function register(& $error): bool
@@ -100,10 +104,25 @@ class Admin
         }
     }
 
-    public function updateAfterLogin()
+    public function update()
     {
         $db = new Database();
         $db->update(static::getCollectionName(), array($this->getToken(), $this->getTokenGeneration(), $this->getTokenExpiration(), $this->getUsername()), "token = ?, token_generation = ?, token_expiration = ?", "username = ?");
+    }
+
+    public static function loadFromToken($token)
+    {
+        $db = new Database();
+        $admin = new Admin();
+        $results = $db->select(static::getCollectionName(), array("token"=>$token), $admin->columns);
+        foreach ($results as $result) {
+            $admin->setUsername($result['username']);
+            $admin->setTokenExpiration($result['token_expiration']);
+            $admin->setTokenGeneration($result['token_generation']);
+            $admin->setToken($token);
+        }
+
+        return $admin;
     }
 
     public function setUsername($name)
@@ -118,20 +137,6 @@ class Admin
     public function getUsername()
     {
         return $this->data['username'];
-    }
-
-    public function setEmail($email)
-    {
-        if ((!is_string($email)) || (strlen($email) <= 0)) {
-            throw new InvalidArgumentException("Invalid Email");
-        }
-
-        $this->data['email'] = $email;
-    }
-
-    public function getEmail()
-    {
-        return $this->data['email'];
     }
 
     public function setId($Id)
@@ -253,19 +258,8 @@ class Admin
 
         $this->setToken($token);
         $this->setTokenGeneration(date("Y-m-d H:i:s"));
-        $this->setTokenExpiration(date("Y-m-d H:i:s", strtotime("+30 minutes")));
+        $this->setTokenExpiration(date("Y-m-d H:i:s", strtotime("+".Functions::$expireTime."minutes")));
 
-        return $this->getShortCode() . $token;
-    }
-
-    public function getShortCode()
-    {
-        $this->data["shortcode"] = (!array_key_exists("shortcode", $this->data)) ? bin2hex(openssl_random_pseudo_bytes(8)) : $this->data["shortcode"];
-
-        if (strlen($this->data["shortcode"]) != 16) {
-            throw new RuntimeException("Bad random number generation");
-        }
-
-        return $this->data["shortcode"];
+        return $token;
     }
 }

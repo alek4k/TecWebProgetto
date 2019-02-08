@@ -7,6 +7,7 @@ require_once('Utilities/Functions.php');
 Functions::checkLogin();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    Functions::checkTokenExpiration();
     aggiungiAdmin();
 } else {
     Functions::backToLogin();

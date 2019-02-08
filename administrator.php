@@ -45,7 +45,7 @@ function login()
 
     if ($user->login($error)) {
         $token = $user->addAuthToken();
-        $user->updateAfterLogin();
+        $user->update();
         $_SESSION["username"] = $user->getUsername();
         $_SESSION["token"] = $token;
 

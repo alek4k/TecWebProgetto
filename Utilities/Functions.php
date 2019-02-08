@@ -12,11 +12,45 @@ class Functions
     //----> website upload images folder <----
     public static $uploadDir = "uploads/";
 
+    //----> session expiration time (minutes) <----
+    public static $expireTime = 15;
+
     public static function checkLogin()
     {
         if (!isset($_SESSION["token"])) {
             self::backToLogin();
         }
+    }
+
+    public static function checkTokenExpiration()
+    {
+        if (isset($_SESSION["token"])) {
+            $current_user = Admin::loadFromToken($_SESSION["token"]);
+
+            $expiration = DateTime::createFromFormat('Y-m-d H:i:s', $current_user->getTokenExpiration());
+            $now = new DateTime();
+            if ($expiration <= $now) {
+                $_SESSION["username"] = null;
+                $_SESSION["token"] = null;
+                $_SESSION["error_login"] = null;
+                $_SESSION["session_expired"] = true;
+                self::backToLogin();
+            }
+
+            $current_user->setTokenGeneration(date("Y-m-d H:i:s"));
+            $current_user->setTokenExpiration(date("Y-m-d H:i:s", strtotime("+".self::$expireTime."minutes")));
+            $current_user->update();
+        }
+    }
+
+    public static function logout()
+    {
+        $_SESSION["username"] = null;
+        $_SESSION["token"] = null;
+        $_SESSION["error_login"] = null;
+
+        header('Location: '.Functions::$mainDirectory.'index.html');
+        die();
     }
 
     public static function backToLogin()

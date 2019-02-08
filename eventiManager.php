@@ -1,9 +1,11 @@
 <?php
 
+require_once('Model/Admin.php');
 require_once('Model/Evento.php');
 require_once('Utilities/Functions.php');
 
 Functions::checkLogin();
+Functions::checkTokenExpiration();
 
 $_SESSION["eventi"] = Evento::getAllEventi();
 

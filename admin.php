@@ -5,6 +5,7 @@ require_once('Model/Admin.php');
 require_once('Utilities/Functions.php');
 
 Functions::checkLogin();
+Functions::checkTokenExpiration();
 
 $listaAdmin = Admin::getAllAdmin();
 $i = 0;

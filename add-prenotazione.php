@@ -1,10 +1,9 @@
 <?php
 
 require_once('Model/Database.php');
+require_once('Model/Admin.php');
 require_once('Model/Prenotazione.php');
 require_once('Utilities/Functions.php');
-
-Functions::checkLogin();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     nuovaPrenotazione();

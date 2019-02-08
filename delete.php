@@ -7,6 +7,7 @@ require_once('Model/Evento.php');
 require_once('Utilities/Functions.php');
 
 Functions::checkLogin();
+Functions::checkTokenExpiration();
 
 if (!empty($_GET["admin"])) {
     if ($_GET["admin"] === $_SESSION["username"]) {
