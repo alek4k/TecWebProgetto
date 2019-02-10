@@ -43,10 +43,10 @@ if (isset($_SESSION["token"])) {
         </div>
         <div id="contact-header" class="vertical-align-block">
             <div class="right">
-                <a id="hamburger-menu" class="show-on-small"><i class="fas fa-bars fa-2x"></i></a>
+                <a id="hamburger-menu" class="show-on-small"><span class="fas fa-bars fa-2x"></span></a>
                 <div class="firstContactItem vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-phone fa-2x left"></i>
+                        <span class="fas fa-phone fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>TELEFONO</p>
@@ -55,7 +55,7 @@ if (isset($_SESSION["token"])) {
                 </div>
                 <div class="vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-at fa-2x left"></i>
+                        <span class="fas fa-at fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>EMAIL</p>
@@ -84,7 +84,7 @@ if (isset($_SESSION["token"])) {
     <h1 class="titoli">Login</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
-        <div class="hr-icon"><i class="fas fa-lock fa-3x"></i></div>
+        <div class="hr-icon"><span class="fas fa-lock fa-3x"></span></div>
         <div class="hr-line"></div>
     </div>
 </div>
@@ -108,11 +108,11 @@ if (isset($_SESSION["token"])) {
     <form action="administrator.php" method="post" class="form" id="formLogin">
         <div class='field required'>
             <label class='label required' for='username'>Username</label>
-            <input class='text-input' id='username' name='username' type='text'>
+            <input class='text-input' id='username' name='username' type='text'/>
         </div>
         <div class='field required'>
             <label class='label required' for='password'>Password</label>
-            <input class='text-input' id='password' name='password' type='password'>
+            <input class='text-input' id='password' name='password' type='password'/>
         </div>
         <div class="centerAlign">
             <input class="btn btn-submit" id="btn_login" type="submit" value="accedi"/>

@@ -39,10 +39,10 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
         <div id="contact-header" class="vertical-align-block">
             <div class="right">
-                <a id="hamburger-menu" class="show-on-small"><i class="fas fa-bars fa-2x"></i></a>
+                <a id="hamburger-menu" class="show-on-small"><span class="fas fa-bars fa-2x"></span></a>
                 <div class="firstContactItem vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-phone fa-2x left"></i>
+                        <span class="fas fa-phone fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>TELEFONO</p>
@@ -51,7 +51,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <div class="vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-at fa-2x left"></i>
+                        <span class="fas fa-at fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>EMAIL</p>
@@ -79,7 +79,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <h1 class="titoli">Prenota</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
-        <div class="hr-icon"><i class="fas fa-user-edit fa-3x"></i></div>
+        <div class="hr-icon"><span class="fas fa-user-edit fa-3x"></span></div>
         <div class="hr-line"></div>
     </div>
 </div>
@@ -122,19 +122,19 @@ if (session_status() == PHP_SESSION_NONE) {
     <form action='add-prenotazione.php' method="post" class='form' id="formPrenotazione">
         <div class='field required'>
             <label class='label required' for='name'>Nome e Cognome</label>
-            <input class='text-input' id='name' name='name' type='text'>
+            <input class='text-input' id='name' name='name' type='text'/>
         </div>
         <div class='field half'>
             <label class='label' for='email'>E-mail</label>
-            <input class='text-input' id='email' name='email' type="text">
+            <input class='text-input' id='email' name='email' type="text"/>
         </div>
         <div class='field required half'>
             <label class='label' for='telefono'>Telefono</label>
-            <input class='text-input' id='telefono' name='telefono' type='text'>
+            <input class='text-input' id='telefono' name='telefono' type='text'/>
         </div>
         <div class='field half required'>
             <label class='label' for='data'>Data Arrivo (gg/mm/aaaa)</label>
-            <input class="select" id="data" name="data" type="text">
+            <input class="select" id="data" name="data" type="text"/>
         </div>
         <div class='field half'>
             <label class='label' for='numeroPersone'>Persone</label>

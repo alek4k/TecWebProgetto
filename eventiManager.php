@@ -45,10 +45,10 @@ $_SESSION["eventi"] = Evento::getAllEventi();
         </div>
         <div id="contact-header" class="vertical-align-block">
             <div class="right">
-                <a id="hamburger-menu" class="show-on-small"><i class="fas fa-bars fa-2x"></i></a>
+                <a id="hamburger-menu" class="show-on-small"><span class="fas fa-bars fa-2x"></span></a>
                 <div class="firstContactItem vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-phone fa-2x left"></i>
+                        <span class="fas fa-phone fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>TELEFONO</p>
@@ -57,7 +57,7 @@ $_SESSION["eventi"] = Evento::getAllEventi();
                 </div>
                 <div class="vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-at fa-2x left"></i>
+                        <span class="fas fa-at fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>EMAIL</p>
@@ -84,7 +84,7 @@ $_SESSION["eventi"] = Evento::getAllEventi();
     <h1 class="titoli">Gestione eventi</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
-        <div class="hr-icon"><i class="fas fa-glass-cheers fa-3x"></i></div>
+        <div class="hr-icon"><span class="fas fa-glass-cheers fa-3x"></span></div>
         <div class="hr-line"></div>
     </div>
 </div>
@@ -127,15 +127,15 @@ $_SESSION["eventi"] = Evento::getAllEventi();
     <form action='add-evento.php' method="post" class='form' id="formEvento" enctype="multipart/form-data">
         <div class='field required'>
             <label class='label required' for='titolo'>Titolo</label>
-            <input class='text-input' id='titolo' name='titolo' type='text'>
+            <input class='text-input' id='titolo' name='titolo' type='text'/>
         </div>
         <div class='field half required'>
             <label class='label' for='data'>Data (gg/mm/aaaa)</label>
-            <input class="select" id="data" name="data" type="text">
+            <input class="select" id="data" name="data" type="text"/>
         </div>
         <div class='field half'>
             <label class='label' for='image'>Immagine</label>
-            <input class='text-input' id='image' name='image' type="file">
+            <input class='text-input' id='image' name='image' type="file"/>
         </div>
         <div class='field required'>
             <label class='label' for='descrizione'>Descrizione</label>
@@ -157,8 +157,8 @@ $_SESSION["eventi"] = Evento::getAllEventi();
                 <p><?php echo $evento['descrizione'] ?></p>
             </div>
             <div class="vertical-align-block itemToAligneventi alignPrenotazioni hide-on-print">
-                <a href="delete.php?evento=<?php echo $evento['Id'] ?>" class="btn btn-red"><i
-                            class="fa far fa-trash-alt"></i> elimina</a>
+                <a href="delete.php?evento=<?php echo $evento['Id'] ?>" class="btn btn-red"><span
+                            class="fa far fa-trash-alt"></span> elimina</a>
             </div>
         </div>
     <?php endforeach; ?>

@@ -54,10 +54,10 @@ $_SESSION["amministratori"] = $listaAdmin;
         </div>
         <div id="contact-header" class="vertical-align-block">
             <div class="right">
-                <a id="hamburger-menu" class="show-on-small"><i class="fas fa-bars fa-2x"></i></a>
+                <a id="hamburger-menu" class="show-on-small"><span class="fas fa-bars fa-2x"></span></a>
                 <div class="firstContactItem vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-phone fa-2x left"></i>
+                        <span class="fas fa-phone fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>TELEFONO</p>
@@ -66,7 +66,7 @@ $_SESSION["amministratori"] = $listaAdmin;
                 </div>
                 <div class="vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-at fa-2x left"></i>
+                        <span class="fas fa-at fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>EMAIL</p>
@@ -93,7 +93,7 @@ $_SESSION["amministratori"] = $listaAdmin;
     <h1 class="titoli">Gestione amministratori</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
-        <div class="hr-icon"><i class="fas fa-user-cog fa-3x"></i></div>
+        <div class="hr-icon"><span class="fas fa-user-cog fa-3x"></span></div>
         <div class="hr-line"></div>
     </div>
 </div>
@@ -102,8 +102,8 @@ $_SESSION["amministratori"] = $listaAdmin;
     <div class="content-half margin2">
         <ul id="lista-admin">
             <?php foreach ($_SESSION["amministratori"] as $admin): ?>
-                <li><a href="delete.php?admin=<?php echo $admin['username'] ?>" class="btn btn-red"><i
-                                class="fa far fa-trash-alt"></i> elimina</a><?php echo ' ' . $admin['username']; ?></li>
+                <li><a href="delete.php?admin=<?php echo $admin['username'] ?>" class="btn btn-red"><span
+                                class="fa far fa-trash-alt"></span> elimina</a><?php echo ' ' . $admin['username']; ?></li>
             <?php endforeach; ?>
         </ul>
     </div>
@@ -131,11 +131,11 @@ $_SESSION["amministratori"] = $listaAdmin;
         <form action="add-admin.php" method="post" class="form" id="formLogin">
             <div class='field half required'>
                 <label class='label required' for='username'>Username</label>
-                <input class='text-input' id='username' name='username' type='text'>
+                <input class='text-input' id='username' name='username' type='text'/>
             </div>
             <div class='field half required'>
                 <label class='label required' for='password'>Password</label>
-                <input class='text-input' id='password' name='password' type='password'>
+                <input class='text-input' id='password' name='password' type='password'/>
             </div>
             <div class="centerAlign">
                 <input class="btn btn-submit" id="btn_login" type="submit" value="aggiungi"/>

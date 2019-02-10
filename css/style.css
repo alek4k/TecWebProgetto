@@ -49,6 +49,10 @@ body {
     display: block !important;
 }
 
+.hideText {
+    position: absolute;
+    text-indent: -9999em;
+}
 /**************** header bar logo/contatti *********/
 #topHeader {
     background-color: rgba(0, 0, 0, 0.7);
@@ -396,7 +400,7 @@ body {
     border-radius: 50%;
 }
 
-#circle-bottom i {
+#circle-bottom span {
     color: #ffffff;
     margin-top: 0.5em;
 }
@@ -520,7 +524,7 @@ ul {
     line-height: 2em;
 }
 
-.descrizioneitinerari i {
+.descrizioneitinerari span {
     margin-right: 0.5em;
     color: #00cc00;
     width: 1em;

@@ -15,7 +15,9 @@ class Functions
     //----> session expiration time (minutes) <----
     public static $expireTime = 15;
 
-    public static function checkLogin()
+    public static function
+
+    checkLogin()
     {
         if (!isset($_SESSION["token"])) {
             self::backToLogin();

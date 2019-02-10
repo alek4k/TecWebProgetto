@@ -42,10 +42,10 @@ $_SESSION["eventi"] = Evento::getAllEventi();
         </div>
         <div id="contact-header" class="vertical-align-block">
             <div class="right">
-                <a id="hamburger-menu" class="show-on-small"><i class="fas fa-bars fa-2x"></i></a>
+                <a id="hamburger-menu" class="show-on-small"><span class="fas fa-bars fa-2x"></span></a>
                 <div class="firstContactItem vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-phone fa-2x left"></i>
+                        <span class="fas fa-phone fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>TELEFONO</p>
@@ -54,7 +54,7 @@ $_SESSION["eventi"] = Evento::getAllEventi();
                 </div>
                 <div class="vertical-align-block hide-on-small-only">
                     <div class="vertical-align-block">
-                        <i class="fas fa-at fa-2x left"></i>
+                        <span class="fas fa-at fa-2x left"></span>
                     </div>
                     <div class="vertical-align-block">
                         <p>EMAIL</p>
@@ -82,7 +82,7 @@ $_SESSION["eventi"] = Evento::getAllEventi();
     <h1 class="titoli">Eventi</h1>
     <div class="hr-block">
         <div class="hr-line"></div>
-        <div class="hr-icon"><i class="fas fa-glass-cheers fa-3x"></i></div>
+        <div class="hr-icon"><span class="fas fa-glass-cheers fa-3x"></span></div>
         <div class="hr-line"></div>
     </div>
 </div>
