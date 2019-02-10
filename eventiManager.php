@@ -72,10 +72,10 @@ $_SESSION["eventi"] = Evento::getAllEventi();
 <div id="navbar">
     <div id="navbar-content" class="container">
         <ul id="menu">
-            <li><a href="admin.php">Amministratori</a></li>
+            <li><a href="admin.php" tabindex="1">Amministratori</a></li>
             <li class="active"><a>Eventi</a></li>
-            <li><a href="prenotazioni.php">Prenotazioni</a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="prenotazioni.php" tabindex="2">Prenotazioni</a></li>
+            <li><a href="logout.php" tabindex="3">Logout</a></li>
         </ul>
     </div>
 </div>
@@ -127,22 +127,22 @@ $_SESSION["eventi"] = Evento::getAllEventi();
     <form action='add-evento.php' method="post" class='form' id="formEvento" enctype="multipart/form-data">
         <div class='field required'>
             <label class='label required' for='titolo'>Titolo</label>
-            <input class='text-input' id='titolo' name='titolo' type='text'/>
+            <input class='text-input' id='titolo' name='titolo' type='text' tabindex="4"/>
         </div>
         <div class='field half required'>
             <label class='label' for='data'>Data (gg/mm/aaaa)</label>
-            <input class="select" id="data" name="data" type="text"/>
+            <input class="select" id="data" name="data" type="text" tabindex="5"/>
         </div>
         <div class='field half'>
             <label class='label' for='image'>Immagine</label>
-            <input class='text-input' id='image' name='image' type="file"/>
+            <input class='text-input' id='image' name='image' type="file" tabindex="6"/>
         </div>
         <div class='field required'>
             <label class='label' for='descrizione'>Descrizione</label>
-            <textarea class='textarea' cols='50' id='descrizione' name='descrizione' rows='4'></textarea>
+            <textarea class='textarea' cols='50' id='descrizione' name='descrizione' rows='4' tabindex="7"></textarea>
         </div>
         <div class="centerAlign">
-            <input class="btn btn-submit" id="btn_creaEvento" type="submit" name="submit" value="crea evento"/>
+            <input class="btn btn-submit" id="btn_creaEvento" type="submit" name="submit" value="crea evento" tabindex="8"/>
         </div>
     </form>
 
@@ -167,11 +167,11 @@ $_SESSION["eventi"] = Evento::getAllEventi();
 <div id="footer" class="text-center">
     <div class="container">
         <a href="http://validator.w3.org/check?uri=referer">
-            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict"/>
+            <img class="left" src="images/valid-xhtml10.png" lang="en" alt="Valid XHTML 1.0 Strict"/>
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
-            <strong><a id="linkAdmin" href="index.html">Torna al sito</a></strong>
+            <strong><a id="linkAdmin" href="index.html" tabindex="9">Torna al sito</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
             <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!"/>

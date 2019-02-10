@@ -73,10 +73,10 @@ $_SESSION["prenotazioni"] = Prenotazione::getAllPrenotazioni();
 <div id="navbar">
     <div id="navbar-content" class="container">
         <ul id="menu">
-            <li><a href="admin.php">Amministratori</a></li>
-            <li><a href="eventiManager.php">Eventi</a></li>
+            <li><a href="admin.php" tabindex="1">Amministratori</a></li>
+            <li><a href="eventiManager.php" tabindex="2">Eventi</a></li>
             <li class="active"><a>Prenotazioni</a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="logout.php" tabindex="3">Logout</a></li>
         </ul>
     </div>
 </div>
@@ -121,11 +121,11 @@ $_SESSION["prenotazioni"] = Prenotazione::getAllPrenotazioni();
 <div id="footer" class="text-center">
     <div class="container">
         <a href="http://validator.w3.org/check?uri=referer">
-            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict"/>
+            <img class="left" src="images/valid-xhtml10.png" lang="en" alt="Valid XHTML 1.0 Strict"/>
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
-            <strong><a id="linkAdmin" href="index.html">Torna al sito</a></strong>
+            <strong><a id="linkAdmin" href="index.html" tabindex="4">Torna al sito</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
             <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!"/>

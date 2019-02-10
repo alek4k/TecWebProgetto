@@ -66,11 +66,11 @@ if (session_status() == PHP_SESSION_NONE) {
 <div id="navbar">
     <div id="navbar-content" class="container">
         <ul id="menu">
-            <li><a href="index.html" lang="en">Home</a></li>
-            <li><a href="dovesiamo.html">Dove siamo</a></li>
+            <li><a href="index.html" lang="en" tabindex="1">Home</a></li>
+            <li><a href="dovesiamo.html" tabindex="2">Dove siamo</a></li>
             <li class="active"><a href="">Prenota</a></li>
-            <li><a href="itinerari.html">Itinerari</a></li>
-            <li><a href="eventi.php">Eventi</a></li>
+            <li><a href="itinerari.html" tabindex="3">Itinerari</a></li>
+            <li><a href="eventi.php" tabindex="4">Eventi</a></li>
         </ul>
     </div>
 </div>
@@ -122,23 +122,23 @@ if (session_status() == PHP_SESSION_NONE) {
     <form action='add-prenotazione.php' method="post" class='form' id="formPrenotazione">
         <div class='field required'>
             <label class='label required' for='name'>Nome e Cognome</label>
-            <input class='text-input' id='name' name='name' type='text'/>
+            <input class='text-input' id='name' name='name' type='text' tabindex="5"/>
         </div>
         <div class='field half'>
             <label class='label' for='email'>E-mail</label>
-            <input class='text-input' id='email' name='email' type="text"/>
+            <input class='text-input' id='email' name='email' type="text" tabindex="6"/>
         </div>
         <div class='field required half'>
             <label class='label' for='telefono'>Telefono</label>
-            <input class='text-input' id='telefono' name='telefono' type='text'/>
+            <input class='text-input' id='telefono' name='telefono' type='text' tabindex="7"/>
         </div>
         <div class='field half required'>
             <label class='label' for='data'>Data Arrivo (gg/mm/aaaa)</label>
-            <input class="select" id="data" name="data" type="text"/>
+            <input class="select" id="data" name="data" type="text" tabindex="8"/>
         </div>
         <div class='field half'>
             <label class='label' for='numeroPersone'>Persone</label>
-            <select class='select' id='numeroPersone' name="numeroPersone">
+            <select class='select' id='numeroPersone' name="numeroPersone" tabindex="9">
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>
@@ -150,10 +150,10 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
         <div class='field'>
             <label class='label' for='note'>Note</label>
-            <textarea class='textarea' cols='50' id='note' name='note' rows='4'></textarea>
+            <textarea class='textarea' cols='50' id='note' name='note' rows='4' tabindex="10"></textarea>
         </div>
         <div class="centerAlign">
-            <input class="btn btn-submit" id="btn_prenota" type="submit" value="prenota"/>
+            <input class="btn btn-submit" id="btn_prenota" type="submit" value="prenota" tabindex="11"/>
         </div>
     </form>
 </div>
@@ -161,11 +161,11 @@ if (session_status() == PHP_SESSION_NONE) {
 <div id="footer" class="text-center">
     <div class="container">
         <a href="http://validator.w3.org/check?uri=referer">
-            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict"/>
+            <img class="left" src="images/valid-xhtml10.png" lang="en" alt="Valid XHTML 1.0 Strict"/>
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
-            <strong><a id="linkAdmin" href="login.php">Pannello di amministrazione</a></strong>
+            <strong><a id="linkAdmin" href="login.php" tabindex="12">Pannello di amministrazione</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
             <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!"/>

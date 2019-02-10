@@ -70,11 +70,11 @@ if (isset($_SESSION["token"])) {
 <div id="navbar">
     <div id="navbar-content" class="container">
         <ul id="menu">
-            <li><a href="index.html" lang="en">Home</a></li>
-            <li><a href="dovesiamo.html">Dove siamo</a></li>
-            <li><a href="prenota.php">Prenota</a></li>
-            <li><a href="itinerari.html">Itinerari</a></li>
-            <li><a href="eventi.php">Eventi</a></li>
+            <li><a href="index.html" lang="en" tabindex="1">Home</a></li>
+            <li><a href="dovesiamo.html" tabindex="2">Dove siamo</a></li>
+            <li><a href="prenota.php" tabindex="3">Prenota</a></li>
+            <li><a href="itinerari.html" tabindex="4">Itinerari</a></li>
+            <li><a href="eventi.php" tabindex="4">Eventi</a></li>
         </ul>
     </div>
 </div>
@@ -108,14 +108,14 @@ if (isset($_SESSION["token"])) {
     <form action="administrator.php" method="post" class="form" id="formLogin">
         <div class='field required'>
             <label class='label required' for='username'>Username</label>
-            <input class='text-input' id='username' name='username' type='text'/>
+            <input class='text-input' id='username' name='username' type='text' tabindex="5"/>
         </div>
         <div class='field required'>
             <label class='label required' for='password'>Password</label>
-            <input class='text-input' id='password' name='password' type='password'/>
+            <input class='text-input' id='password' name='password' type='password' tabindex="6"/>
         </div>
         <div class="centerAlign">
-            <input class="btn btn-submit" id="btn_login" type="submit" value="accedi"/>
+            <input class="btn btn-submit" id="btn_login" type="submit" value="accedi" tabindex="7"/>
         </div>
     </form>
 </div>
@@ -123,11 +123,11 @@ if (isset($_SESSION["token"])) {
 <div id="footer" class="text-center">
     <div class="container">
         <a href="http://validator.w3.org/check?uri=referer">
-            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict"/>
+            <img class="left" src="images/valid-xhtml10.png" lang="en" alt="Valid XHTML 1.0 Strict"/>
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
-            <strong class="active"><a id="linkAdmin">Pannello di amministrazione</a></strong>
+            <strong class="active"><a id="linkAdmin" tabindex="8">Pannello di amministrazione</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
             <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!"/>

@@ -82,9 +82,9 @@ $_SESSION["amministratori"] = $listaAdmin;
     <div id="navbar-content" class="container">
         <ul id="menu">
             <li class="active"><a href="">Amministratori</a></li>
-            <li><a href="eventiManager.php">Eventi</a></li>
-            <li><a href="prenotazioni.php">Prenotazioni</a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="eventiManager.php" tabindex="1">Eventi</a></li>
+            <li><a href="prenotazioni.php" tabindex="2">Prenotazioni</a></li>
+            <li><a href="logout.php" tabindex="3">Logout</a></li>
         </ul>
     </div>
 </div>
@@ -131,14 +131,14 @@ $_SESSION["amministratori"] = $listaAdmin;
         <form action="add-admin.php" method="post" class="form" id="formLogin">
             <div class='field half required'>
                 <label class='label required' for='username'>Username</label>
-                <input class='text-input' id='username' name='username' type='text'/>
+                <input class='text-input' id='username' name='username' type='text' tabindex="4"/>
             </div>
             <div class='field half required'>
                 <label class='label required' for='password'>Password</label>
-                <input class='text-input' id='password' name='password' type='password'/>
+                <input class='text-input' id='password' name='password' type='password' tabindex="5"/>
             </div>
             <div class="centerAlign">
-                <input class="btn btn-submit" id="btn_login" type="submit" value="aggiungi"/>
+                <input class="btn btn-submit" id="btn_login" type="submit" value="aggiungi" tabindex="6"/>
             </div>
         </form>
     </div>
@@ -147,11 +147,11 @@ $_SESSION["amministratori"] = $listaAdmin;
 <div id="footer" class="text-center">
     <div class="container">
         <a href="http://validator.w3.org/check?uri=referer">
-            <img class="left" src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict"/>
+            <img class="left" src="images/valid-xhtml10.png" lang="en" alt="Valid XHTML 1.0 Strict"/>
         </a>
         <div id="footer-text">
             <em>Progetto del corso di Tecnologie Web 2018-2019</em>
-            <strong><a id="linkAdmin" href="index.html">Torna al sito</a></strong>
+            <strong><a id="linkAdmin" href="index.html" tabindex="7">Torna al sito</a></strong>
         </div>
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
             <img class="right" src="images/vcss-blue.gif" alt="CSS Valido!"/>
