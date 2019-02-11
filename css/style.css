@@ -53,6 +53,15 @@ body {
     position: absolute;
     text-indent: -9999em;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.show-on-print-only {
+    display: none;
+}
+
 /**************** header bar logo/contatti *********/
 #topHeader {
     background-color: rgba(0, 0, 0, 0.7);
@@ -187,7 +196,7 @@ body {
 }
 
 .itemToAlign {
-    width: 45%;
+    width: 35%;
     margin: auto;
     margin-right: 0;
     align-self: center;
@@ -331,7 +340,7 @@ body {
     word-spacing: 0.5em;
 }
 
-#descrizione {
+.descrizione {
     font-size: 1.1em;
     line-height: 1.5em;
 }
@@ -342,10 +351,10 @@ body {
     margin-right: auto;
     margin-left: 0;
     align-self: center;
-    width: 45%;
+    width: 60%;
 }
 
-#img-description {
+.img-description {
     width: 100%;
     box-shadow: 0 0.5em 1.5em 0 rgba(0, 0, 0, 0.3);
     border-radius: .25rem;
@@ -383,7 +392,7 @@ body {
 }
 
 #circle-bottom {
-    background-color: #00cc00;
+    background-color: #476223;
     border-radius: 50%;
     width: 4em;
     height: 4em;
@@ -540,12 +549,12 @@ ul {
 /****** dove siamo ******/
 .top-img {
     margin-top: 2em;
-    width: 100%;
+    width: 80%;
+    margin-bottom: 2em;
 }
 
 .titoli {
     margin-top: 1em;
-    font-size: 2em;
 }
 
 .margin2 {

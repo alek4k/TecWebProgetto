@@ -90,12 +90,13 @@ $_SESSION["eventi"] = Evento::getAllEventi();
 <div class="container before-footer">
     <?php foreach ($_SESSION["eventi"] as $evento): ?>
         <div class="flexible block-mobile evento">
-            <div class="vertical-align-block itemToAligneventi hide-on-print">
-                <span class="date"><?php echo substr($evento['data'], 8, 2) ?></span>
-                <span class="month"><?php echo Functions::getMese(date("F", strtotime($evento['data']))) ?></span>
+            <div class="vertical-align-block itemToAligneventi">
+                <span class="date hide-on-print"><?php echo substr($evento['data'], 8, 2) ?></span>
+                <span class="month hide-on-print"><?php echo Functions::getMese(date("F", strtotime($evento['data']))) ?></span>
+                <h2 class="show-on-print-only"><?php echo substr($evento['data'], 8, 2) . " " . Functions::getMese(date("F", strtotime($evento['data']))) ?></h2>
             </div>
             <div class="vertical-align-block eventi-text">
-                <p class="titoloevento"><?php echo $evento['titolo'] ?></p>
+                <h3 class="titoloevento"><?php echo $evento['titolo'] ?></h3>
                 <p><?php echo $evento['descrizione'] ?></p>
             </div>
             <div class="vertical-align-block itemToAligneventi hide-on-print">

@@ -37,3 +37,7 @@
 #linkAdmin {
     display: none;
 }
+
+.show-on-print-only {
+    display: block;
+}
