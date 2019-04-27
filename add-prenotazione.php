@@ -74,7 +74,7 @@ function nuovaPrenotazione()
     $prenotazione->setEmail(Functions::pulisciInput($email));
     $prenotazione->setTelefono(Functions::pulisciInput($telefono));
     $prenotazione->setPersone(Functions::pulisciInput($numPersone));
-    $prenotazione->setData(Functions::pulisciInput($data));
+    $prenotazione->setData($data);
     $prenotazione->setNote(Functions::pulisciInput($note));
 
     if ($prenotazione->createPrenotazione($error)) {

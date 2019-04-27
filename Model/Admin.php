@@ -67,11 +67,6 @@ class Admin
 
         $error = "Utente non trovato";
         return false;
-
-        /*
-         *   test vari db
-         *   $db->update("admin", array("alek.lovo@gmail.com", "alessandro.lovo@gmail.com"), "email = ?", "email = ?");
-         */
     }
 
     public static function getAllAdmin()

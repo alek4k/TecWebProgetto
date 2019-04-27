@@ -30,6 +30,7 @@ $_SESSION["amministratori"] = $listaAdmin;
     <meta name="author" content="Alberto Corrocher, Alessandro Lovo, Amedeo Meggiolaro, Victor Ducta"/>
     <meta name="keywords"
           content="montagna, rifugio, dolomiti, alpi, ristorazione, altopiano, itinerari, roccia, escursione, sentieri, bosco"/>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <meta name="language" content="italian it"/>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="handheld, screen"/>
     <link rel="stylesheet" type="text/css" href="css/desktop.css"
